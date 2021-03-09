@@ -1,1 +1,15 @@
 <!-- <input type="text" name="filter" [(ngModel)]="filter" placeholder="Symptoms"/> -->
+
+<!-- <div class="search-wrapper">
+
+    <div class="wrap">
+    
+        <div class="search">
+           <input type="text" class="searchTerm" [(ngModel)]="searchTerm" placeholder="Search over 10 symptoms>
+           <button type="submit" class="searchButton" (click)="recipeService.getRecipes(searchTerm)" routerLink="/recipes">
+             <i class="fa fa-search"></i>
+          </button>
+        </div>
+    </div>
+    </div> -->
+<p *ngFor="let symptom of EOAPI.symptoms"> {{symptom.cond_name}} </p>

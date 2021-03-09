@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { List } from '../eo';
 import { EOAPIService } from '../eo-api.service';
 
 @Component({

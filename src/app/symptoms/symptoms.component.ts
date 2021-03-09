@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { List } from '../eo';
 import { EOAPIService } from '../eo-api.service';
+import { List } from '../eo';
 
 @Component({
   selector: 'app-symptoms',
@@ -10,9 +10,10 @@ import { EOAPIService } from '../eo-api.service';
 export class SymptomsComponent implements OnInit {
   public essentialOils: List[];
 
-  constructor(public EOAPIService: EOAPIService) { }
+  constructor(public EOAPI: EOAPIService) { }
 
   ngOnInit(): void {
+  //   this.EOAPI.getSymptoms();
   }
 
 }

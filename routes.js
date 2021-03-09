@@ -2,7 +2,7 @@ const express = require('express');
 const routes = express.Router();
 const pool = require('./connection');
 // GET /routes
-routes.get("/conditions", (req, res) => {
+routes.get("/symptoms", (req, res) => {
     pool.query('SELECT * FROM conditions').then((result) => {
         res.json(result.rows)
     });

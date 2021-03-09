@@ -13,5 +13,6 @@ export interface List {
     sub_cond: string;
     eo_id: number;
     level: number;
+    eo_url: string;
 
 }

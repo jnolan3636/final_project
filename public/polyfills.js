@@ -7,11 +7,8 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! C:\Users\aiuze76\Documents\Bootcamp\final_project\src\polyfills.ts */"hN/g");
-=======
 module.exports = __webpack_require__(/*! /Users/Ashley/Documents/Sites/Grand-Circus/Projects/Final-Project/final_project/src/polyfills.ts */"hN/g");
->>>>>>> 9550c02aee4efd61bc426a57783b4280255a79f5
+
 
 
 /***/ }),

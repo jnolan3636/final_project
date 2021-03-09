@@ -38,24 +38,24 @@ function EoComponent_p_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", oil_r1.eo_name, " ");
 } }
-class EoComponent {
-    constructor(EOAPI) {
-        this.EOAPI = EOAPI;
-    }
-    ngOnInit() {
-        this.EOAPI.getOil();
-    }
-}
-EoComponent.ɵfac = function EoComponent_Factory(t) { return new (t || EoComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_eo_api_service__WEBPACK_IMPORTED_MODULE_1__["EOAPIService"])); };
-EoComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: EoComponent, selectors: [["app-eo"]], decls: 3, vars: 1, consts: [[4, "ngFor", "ngForOf"]], template: function EoComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } if (rf & 2) {
-        const oil_r1 = ctx.$implicit;
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", oil_r1.eo_name, " ");
-    } }
+// class EoComponent {
+//     constructor(EOAPI) {
+//         this.EOAPI = EOAPI;
+//     }
+//     ngOnInit() {
+//         this.EOAPI.getOil();
+//     }
+// }
+// EoComponent.ɵfac = function EoComponent_Factory(t) { return new (t || EoComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_eo_api_service__WEBPACK_IMPORTED_MODULE_1__["EOAPIService"])); };
+// EoComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: EoComponent, selectors: [["app-eo"]], decls: 3, vars: 1, consts: [[4, "ngFor", "ngForOf"]], template: function EoComponent_Template(rf, ctx) { if (rf & 1) {
+//         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
+//         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+//         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+//     } if (rf & 2) {
+//         const oil_r1 = ctx.$implicit;
+//         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+//         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", oil_r1.eo_name, " ");
+//     } }
     class EoComponent {
         constructor(EOAPI) {
             this.EOAPI = EOAPI;

@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({ providedIn: 'root' })
 export class EOAPIService {
   public essentialOils: List[];
-  public url: string = '/api/routes/';
+  public url: string = '/api/';
   constructor(private http: HttpClient) {
     this.essentialOils = [];
   }

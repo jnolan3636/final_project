@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { List } from '../eo';
+import { EOAPIService } from '../eo-api.service';
 
 @Component({
   selector: 'app-symptoms',
@@ -6,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./symptoms.component.css']
 })
 export class SymptomsComponent implements OnInit {
+  public essentialOils: List[];
 
-  constructor() { }
+  constructor(public EOAPIService: EOAPIService) { }
 
   ngOnInit(): void {
   }

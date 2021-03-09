@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EOAPIService } from '../eo-api.service';
 
 @Component({
   selector: 'app-symptoms',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SymptomsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public EOAPI: EOAPIService) { }
 
   ngOnInit(): void {
+    this.EOAPI.getSymptoms();
   }
 
 }

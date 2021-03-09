@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\drkitkat19\Desktop\final_project\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! /Users/Ashley/Documents/Sites/Grand-Circus/Projects/Final-Project/final_project/src/main.ts */"zUnb");
 
 
 /***/ }),
@@ -325,9 +325,22 @@ class EOAPIService {
     constructor(http) {
         this.http = http;
         this.url = '/api/';
+        this.filter = '';
         this.essentialOils = [];
         this.symptoms = [];
     }
+    // displayedEO: List[] = [...this.essentialOils];
+    // getFilteredEO(): List[] {
+    //   return this.essentialOils.filter((essentialOils) => {
+    //     // convert the items.task to lowercase
+    //     const taskLower = eo_name.task.toLowerCase();
+    //     // convert the filter input to lowercase
+    //     const filterLower = this.filter.toLowerCase();
+    //     // check to set if the filter input is inside of the task
+    //     // string
+    //     return taskLower.includes(filterLower);
+    //   });
+    // };
     getOil() {
         this.essentialOils = [];
         this.http.get(this.url + 'eo').subscribe((data) => {
@@ -383,7 +396,7 @@ class SymptomsComponent {
         this.EOAPI = EOAPI;
     }
     ngOnInit() {
-        this.EOAPI.getSymptoms();
+        //   this.EOAPI.getSymptoms();
     }
 }
 SymptomsComponent.ɵfac = function SymptomsComponent_Factory(t) { return new (t || SymptomsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_eo_api_service__WEBPACK_IMPORTED_MODULE_1__["EOAPIService"])); };

@@ -1,2 +1,20 @@
 <!-- <input type="text" name="filter" [(ngModel)]="filter" placeholder="Symptoms"/> -->
-<p *ngFor="let symptom of EOAPI.symptoms"> {{symptom.cond_name}} </p>
+
+<!-- <div class="search-wrapper">
+
+    <div class="wrap">
+    
+        <div class="search">
+           <input type="text" class="searchTerm" [(ngModel)]="searchTerm" placeholder="Search over 10 symptoms>
+           <button type="submit" class="searchButton" (click)="recipeService.getRecipes(searchTerm)" routerLink="/recipes">
+             <i class="fa fa-search"></i>
+          </button>
+        </div>
+    </div>
+    </div> -->
+    <h1>Sypmtoms Checker</h1>
+    <form>
+      <input (ngModelChange)="EOAPI.getSymptom(sympName)" type="text" [(ngModel)]="sympName" name="sympName" placeholder="Input Symptom" />
+    </form>
+
+<p *ngFor="let symptom of EOAPI.sympSearch"> {{symptom.symp_name}} </p>

@@ -7,6 +7,7 @@ try {
 	// When running with Heroku, dotenv doesn't need to be available.
 }
 const connectionString = process.env.DATABASE_URL;
+console.log(connectionString);
 const pool = new Pool({
 	connectionString: connectionString,
 	ssl: connectionString.includes('localhost')

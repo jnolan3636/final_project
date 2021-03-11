@@ -3,11 +3,13 @@ import { List } from './eo';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
+
 export class EOAPIService {
   
-  public essentialOils: List[];
+  public essentialOils: List[] = [];
   public symptoms: List[];
-  public url: string = '/api/';
+  public url: string = 'http://localhost:3000/api/';
+  eoSearch: List[] = [];
   filter: string = '';
 
   constructor(private http: HttpClient) {
@@ -27,11 +29,25 @@ export class EOAPIService {
   //   });
     
   // };
+  getEO(eoName?: string) {
+    if (eoName) { 
+    this.http.get(this.url + `eo/${eoName}`).subscribe(
+      (resp:any) => {
+        this.eoSearch = resp
+      },
+      (error) => {
+        console.log(error);
+        }
+        //add else to return all oils
+      )
+    }
+  }
 
-  getOil() : void {
+  getOil() {
     this.essentialOils = [];
 
     this.http.get(this.url + 'eo').subscribe(
+
       (data) => {
         for (const key in data) {
           if (Object.prototype.hasOwnProperty.call(data, key)) {
@@ -64,5 +80,5 @@ export class EOAPIService {
   //       console.error('there is an error');
   //     }
   //   );
-  }
-//}
+  // }
+}

@@ -8,7 +8,8 @@ export class EOAPIService {
   
   public essentialOils: List[] = [];
   public symptoms: List[];
-  public url: string = 'http://localhost:3000/api/';
+  // public url: string = 'http://localhost:3000/api/';
+  public url: string = 'http://group-1-final-project-esense/api/';
   eoSearch: List[] = [];
   sympSearch: List[] = [];
   filter: string = '';

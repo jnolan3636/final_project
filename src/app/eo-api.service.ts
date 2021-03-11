@@ -30,6 +30,7 @@ export class EOAPIService {
   //   });
     
   // };
+//to get EOs by Name
   getEO(eoName?: string) {
     if (eoName) { 
     this.http.get(this.url + `eo/${eoName}`).subscribe(
@@ -39,21 +40,17 @@ export class EOAPIService {
       (error) => {
         console.log(error);
         }
-        //add else to return all oils
       )
     }
   }
 //to get ALL oils
   getOil() {
     this.essentialOils = [];
-
     this.http.get(this.url + 'eo').subscribe(
-
       (data) => {
         for (const key in data) {
           if (Object.prototype.hasOwnProperty.call(data, key)) {
             const essentialOil = data[key];
-
             this.essentialOils.push(essentialOil);
           }
         }

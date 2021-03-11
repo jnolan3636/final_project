@@ -9,6 +9,7 @@ import { EoComponent } from './eo/eo.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

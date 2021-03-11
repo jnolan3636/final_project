@@ -12,7 +12,7 @@ routes.get("/symptoms", (req, res) => {
 // GET symptom by NAME /api/symptom/headache
 routes.get("/symptoms/:symp_name", (req, res) => {
     const sympByName = req.params.symp_name;
-    pool.query('SELECT * FROM symptoms WHERE symp_name = $1', [sympByName])
+    pool.query(`SELECT * FROM symptoms WHERE symp_name ILIKE '%'||$1||'%'`, [sympByName])
     .then ( (results) => {
         const symptoms = results.rows;
         if (symptoms.length) {
@@ -24,18 +24,18 @@ routes.get("/symptoms/:symp_name", (req, res) => {
 });
 
 // GET sub_symps /api/symptom/7
-routes.get("/sypmtoms/:symp_id", (req, res) => {
-    const sympById = req.params.symp_id;
-    pool.query('SELECT * FROM applications WHERE symp_id = $1', [sympById])
-    .then ( (results) => {
-        const subs = results.rows;
-        if (subs.length) {
-            res.status(200).json(subs);
-        } else {
-            res.status(404).send(`There is no sub-symptoms in the database`);
-        }
-        })
-});
+// routes.get("/sypmtoms/:symp_id", (req, res) => {
+//     const sympById = req.params.symp_id;
+//     pool.query(`SELECT * FROM applications WHERE symp_id = ILIKE '%'||$1||'%'`, [sympById])
+//     .then ( (results) => {
+//         const subs = results.rows;
+//         if (subs.length) {
+//             res.status(200).json(subs);
+//         } else {
+//             res.status(404).send(`There is no sub-symptoms in the database`);
+//         }
+//         })
+// });
 
 //GET all EOs /api/eo
 routes.get("/eo", (req, res) => {

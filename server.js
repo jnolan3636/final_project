@@ -6,6 +6,7 @@ app.use(express.json());
 const port = process.env.PORT || 3000;
 const cors = require("cors");
 app.use(cors());
+
 // Add express static here in order to
 
 app.use(express.json());

@@ -1,3 +1,4 @@
+const { RouterState } = require('@angular/router');
 const express = require('express');
 const routes = express.Router();
 const pool = require('./connection');
@@ -23,10 +24,10 @@ routes.get("/symptoms/:symp_name", (req, res) => {
         })
 });
 
-// GET sub_symps /api/symptom/7
+// //GET sub_symps /api/symptom/7
 // routes.get("/sypmtoms/:symp_id", (req, res) => {
 //     const sympById = req.params.symp_id;
-//     pool.query(`SELECT * FROM applications WHERE symp_id = ILIKE '%'||$1||'%'`, [sympById])
+//     pool.query(`SELECT * FROM applications JOIN symtpoms ON applications.symp_id = symtpoms.id `, [sympById])
 //     .then ( (results) => {
 //         const subs = results.rows;
 //         if (subs.length) {
@@ -36,6 +37,11 @@ routes.get("/symptoms/:symp_name", (req, res) => {
 //         }
 //         })
 // });
+
+routes.get("symptoms/:symp_name", (req,res) => {
+    const sympByName = req.params.symp_name;
+    pool.query("SELECT sub_symp FROM applications JOIN symtpoms ON applications.symp_id = symtpoms.id WHERE symp_name =$1",[sympByName])
+})
 
 //GET all EOs /api/eo
 routes.get("/eo", (req, res) => {

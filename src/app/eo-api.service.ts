@@ -10,6 +10,7 @@ export class EOAPIService {
   public symptoms: List[];
   public url: string = 'http://localhost:3000/api/';
   eoSearch: List[] = [];
+  sympSearch: List[] = [];
   filter: string = '';
 
   constructor(private http: HttpClient) {
@@ -42,7 +43,7 @@ export class EOAPIService {
       )
     }
   }
-
+//to get ALL oils
   getOil() {
     this.essentialOils = [];
 
@@ -81,4 +82,17 @@ export class EOAPIService {
   //     }
   //   );
   // }
+  getSymptom(sympName?: string) {
+    if (sympName) { 
+    this.http.get(this.url + `symptoms/${sympName}`).subscribe(
+      (resp:any) => {
+        this.sympSearch = resp
+      },
+      (error) => {
+        console.log(error);
+        }
+        //add else to return all symptoms
+      )
+    }
+  }
 }

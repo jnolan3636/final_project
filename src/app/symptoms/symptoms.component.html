@@ -12,4 +12,14 @@
         </div>
     </div>
     </div> -->
-<p *ngFor="let symptom of EOAPI.symptoms"> {{symptom.cond_name}} </p>
+    <h1>Sypmtoms Checker</h1>
+    <form>
+      <input (ngModelChange)="EOAPI.getSymptom(sympName)" type="select" [(ngModel)]="sympName" name="sympName" placeholder="Input Symptom" />
+    </form>
+<section *ngFor="let symptom of EOAPI.sympSearch">
+<p> {{symptom.symp_name}} </p>
+<!-- <p> {{symptom.sub_symp}}</p> -->
+<p> Description: {{symptom.symp_desc}}</p>
+<p> Topical Application: {{symptom.topical_appl}}</p>
+<p> Aromatic Application: {{symptom.aromatic_appl}} </p>
+</section>

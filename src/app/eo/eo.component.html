@@ -15,11 +15,13 @@
     <div *ngFor="let eo of EOAPI.eoSearch">
       <p>{{ eo.eo_name }}</p>
       
-      <img [src]="eo_url" height="10%" width="10%" />
-      <p>Properties: {{ eo.eo_prop }}</p>
+      <img [src]="eo.eo_url" height="50%" width="50%" />
+      <p>Properties: {{ eo.eo_prop }} </p>
       <p>Historical Uses: {{ eo.eo_hist_uses }}</p>
       <p>Body Systems: {{ eo.eo_body_sys }}</p>
       <p>Aroma Description: {{ eo.eo_aroma_desc }}</p>
-         
+    
+      <p>{{ eo.eo_name }} may be useful on the following symptoms:</p>
     </div>
+    
   </div>

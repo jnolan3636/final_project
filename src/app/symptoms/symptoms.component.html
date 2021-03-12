@@ -12,14 +12,19 @@
         </div>
     </div>
     </div> -->
-    <h1>Sypmtoms Checker</h1>
-    <form>
-      <input (ngModelChange)="EOAPI.getSymptom(sympName)" type="select" [(ngModel)]="sympName" name="sympName" placeholder="Input Symptom" />
-    </form>
+<h1>Symptoms Checker</h1>
+  <form>
+    <input (ngModelChange)="EOAPI.getSymptom(sympName)" type="select" [(ngModel)]="sympName" name="sympName" placeholder="Input Symptom" />
+  </form>
+
+  <select (click)="EOAPI.getSubSymptom(sympName)" name="subSymp">
+    <option *ngFor="let sub of EOAPI.subSearch" >{{sub.sub_symp}}</option>
+  </select>
+
 <section *ngFor="let symptom of EOAPI.sympSearch">
-<p> {{symptom.symp_name}} </p>
-<!-- <p> {{symptom.sub_symp}} </p> -->
-<p> Description: {{symptom.symp_desc}}</p>
-<p> Topical Application: {{symptom.topical_appl}}</p>
-<p> Aromatic Application: {{symptom.aromatic_appl}} </p>
+  <p> {{symptom.symp_name}} </p>
+  <p> Description: {{symptom.symp_desc}}</p>
+  <p> These Essential Oils may be helpful:</p>
+  <p> Topical Application: {{symptom.topical_appl}}</p>
+  <p> Aromatic Application: {{symptom.aromatic_appl}} </p>
 </section>

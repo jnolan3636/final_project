@@ -9,6 +9,7 @@ import { List } from '../eo';
 })
 export class SymptomsComponent implements OnInit {
   public essentialOils: List[];
+  public subSearch: List[];
   public sympName : string;
   public subSympName : string;
 

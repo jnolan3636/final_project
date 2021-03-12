@@ -376,6 +376,7 @@ class EOAPIService {
         this.sympSearch = [];
         this.subSearch = [];
         this.filter = '';
+        this.sympEO = [];
         this.essentialOils = [];
         this.symptoms = [];
         this.subSearch = [];

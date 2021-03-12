@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { List } from './eo';
 import { HttpClient } from '@angular/common/http';
-
+import { stringify } from '@angular/compiler/src/util';
 @Injectable({ providedIn: 'root' })
-
 export class EOAPIService {
-  
   public essentialOils: List[] = [];
   public symptoms: List[];
   public url: string = 'http://localhost:3000/api/';
@@ -14,13 +12,12 @@ export class EOAPIService {
   sympSearch: List[] = [];
   subSearch: List[] = [];
   filter: string = '';
-
+  sympEO: List [] = [];
   constructor(private http: HttpClient) {
     this.essentialOils = [];
     this.symptoms = [];
     this.subSearch = [];
   }
-
 //to get EOs by Name
   getEO(eoName?: string) {
     if (eoName) { 
@@ -65,7 +62,7 @@ export class EOAPIService {
       )
     }
   }
-//To get sub symptom by symptom name
+ //To get sub symptom by symptom name
   getSubSymptom(sympName?: string) {
     if (sympName) { 
     this.http.get(this.url + `subsymptoms/${sympName}`).subscribe(
@@ -80,4 +77,17 @@ export class EOAPIService {
       )
     }
   }
+  // getSympEO(sympName?: string) {
+  //   if (sympName) { 
+  //   this.http.get(this.url + `symptomsEO/${sympName}`).subscribe(
+  //     (resp:any) => {
+  //       this.sympEO = resp
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //       }
+  //       //add else to return all subsymptoms
+  //     )
+  //   }
+  // }
 }

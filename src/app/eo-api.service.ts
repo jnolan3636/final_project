@@ -18,6 +18,7 @@ export class EOAPIService {
   constructor(private http: HttpClient) {
     this.essentialOils = [];
     this.symptoms = [];
+    this.subSearch = [];
   }
 
 //to get EOs by Name
@@ -70,6 +71,7 @@ export class EOAPIService {
     this.http.get(this.url + `subsymptoms/${sympName}`).subscribe(
       (resp:any) => {
         this.subSearch = resp
+        console.log("These are the sub symps: ", resp)
       },
       (error) => {
         console.log(error);

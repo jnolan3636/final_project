@@ -27,7 +27,7 @@ routes.get("/symptoms/:symp_name", (req, res) => {
 //GET sub_symps /api/symptoms/headache
 routes.get("/subsymptoms/:symp_name", (req,res) => {
     const sympByName = req.params.symp_name;
-    pool.query(`SELECT sub_symp FROM applications JOIN symptoms ON applications.symp_id = symptoms.id WHERE symptoms.symp_name ILIKE '%'||$1||'%'`, [sympByName])
+    pool.query(`SELECT DISTINCT sub_symp FROM applications JOIN symptoms ON applications.symp_id = symptoms.id WHERE symptoms.symp_name ILIKE '%'||$1||'%'`, [sympByName])
     .then ( (results) => {
         const subs = results.rows;
         if (subs.length) {
@@ -65,5 +65,10 @@ routes.get("/eo/:eo_name", (req, res) => {
 // JOIN applications ON ess_oils.id = applications.eo_id
 // JOIN symptoms ON applications.symp_id = symptoms.id
 // WHERE eo_name = 'Lavender';
+
+//GET EOs by Symptom 
+
+
+//GET EOs by Subsymptom
 
 module.exports = routes;

@@ -12,14 +12,18 @@
         </div>
     </div>
     </div> -->
-    <h1>Sypmtoms Checker</h1>
-    <form>
-      <input (ngModelChange)="EOAPI.getSymptom(sympName)" type="select" [(ngModel)]="sympName" name="sympName" placeholder="Input Symptom" />
-    </form>
+<h1>Symptoms Checker</h1>
+  <form>
+    <input (ngModelChange)="EOAPI.getSymptom(sympName)" type="select" [(ngModel)]="sympName" name="sympName" placeholder="Input Symptom" />
+  </form>
+
+  <!-- <select name="subSymp" [(ngModel)]="EOAPI.getSubSymptom(sympName)">
+    <option *ngFor="let sub of EOAPI.subSearch" [ngValue]="c">{{sub.sub_symp}}</option>
+  </select> -->
+
 <section *ngFor="let symptom of EOAPI.sympSearch">
-<p> {{symptom.symp_name}} </p>
-<!-- <p> {{symptom.sub_symp}}</p> -->
-<p> Description: {{symptom.symp_desc}}</p>
-<p> Topical Application: {{symptom.topical_appl}}</p>
-<p> Aromatic Application: {{symptom.aromatic_appl}} </p>
+  <p> {{symptom.symp_name}} </p>
+  <p> Description: {{symptom.symp_desc}}</p>
+  <p> Topical Application: {{symptom.topical_appl}}</p>
+  <p> Aromatic Application: {{symptom.aromatic_appl}} </p>
 </section>

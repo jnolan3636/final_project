@@ -8,29 +8,18 @@ export class EOAPIService {
   
   public essentialOils: List[] = [];
   public symptoms: List[];
-  // public url: string = 'http://localhost:3000/api/';
-  public url: string = 'https://group-1-final-project-esense.herokuapp.com/api/';
+  public url: string = 'http://localhost:3000/api/';
+  // public url: string = 'https://group-1-final-project-esense.herokuapp.com/api/';
   eoSearch: List[] = [];
   sympSearch: List[] = [];
+  subSearch: List[] = [];
   filter: string = '';
 
   constructor(private http: HttpClient) {
     this.essentialOils = [];
     this.symptoms = [];
   }
-  // displayedEO: List[] = [...this.essentialOils];
-  // getFilteredEO(): List[] {
-  //   return this.essentialOils.filter((essentialOils) => {
-  //     // convert the items.task to lowercase
-  //     const taskLower = eo_name.task.toLowerCase();
-  //     // convert the filter input to lowercase
-  //     const filterLower = this.filter.toLowerCase();
-  //     // check to set if the filter input is inside of the task
-  //     // string
-  //     return taskLower.includes(filterLower);
-  //   });
-    
-  // };
+
 //to get EOs by Name
   getEO(eoName?: string) {
     if (eoName) { 
@@ -40,7 +29,7 @@ export class EOAPIService {
       },
       (error) => {
         console.log(error);
-        }
+        } //else bring back all or top 3 EOs
       )
     }
   }
@@ -61,25 +50,7 @@ export class EOAPIService {
       }
     );
   }
-
-  // getSymptoms() : void {
-  //   this.symptoms = [];
-
-  //   this.http.get(this.url + 'symptoms').subscribe(
-  //     (data) => {
-  //       for (const key in data) {
-  //         if (Object.prototype.hasOwnProperty.call(data, key)) {
-  //           const apple = data[key];
-
-  //           this.symptoms.push(this.apple);
-  //         }
-  //       }
-  //     },
-  //     (error) => {
-  //       console.error('there is an error');
-  //     }
-  //   );
-  // }
+//To get symptom by Name
   getSymptom(sympName?: string) {
     if (sympName) { 
     this.http.get(this.url + `symptoms/${sympName}`).subscribe(
@@ -90,6 +61,20 @@ export class EOAPIService {
         console.log(error);
         }
         //add else to return all symptoms
+      )
+    }
+  }
+//To get sub symptom by symptom name
+  getSubSymptom(sympName?: string) {
+    if (sympName) { 
+    this.http.get(this.url + `subsymptoms/${sympName}`).subscribe(
+      (resp:any) => {
+        this.subSearch = resp
+      },
+      (error) => {
+        console.log(error);
+        }
+        //add else to return all subsymptoms
       )
     }
   }

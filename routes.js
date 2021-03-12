@@ -5,12 +5,12 @@ const pool = require('./connection');
 
 // GET all symptoms /api/symptoms
 routes.get("/symptoms", (req, res) => {
-    pool.query('SELECT * FROM sypmtoms').then((result) => {
+    pool.query('SELECT * FROM symptoms').then((result) => {
         res.json(result.rows)
     });
 });
 
-// GET symptom by NAME /api/symptom/headache
+// GET symptom by NAME /api/symptoms/headache
 routes.get("/symptoms/:symp_name", (req, res) => {
     const sympByName = req.params.symp_name;
     pool.query(`SELECT * FROM symptoms WHERE symp_name ILIKE '%'||$1||'%'`, [sympByName])
@@ -24,24 +24,19 @@ routes.get("/symptoms/:symp_name", (req, res) => {
         })
 });
 
-// //GET sub_symps /api/symptom/7
-// routes.get("/sypmtoms/:symp_id", (req, res) => {
-//     const sympById = req.params.symp_id;
-//     pool.query(`SELECT * FROM applications JOIN symtpoms ON applications.symp_id = symtpoms.id `, [sympById])
-//     .then ( (results) => {
-//         const subs = results.rows;
-//         if (subs.length) {
-//             res.status(200).json(subs);
-//         } else {
-//             res.status(404).send(`There is no sub-symptoms in the database`);
-//         }
-//         })
-// });
-
-routes.get("symptoms/:symp_name", (req,res) => {
+//GET sub_symps /api/symptoms/headache
+routes.get("/subsymptoms/:symp_name", (req,res) => {
     const sympByName = req.params.symp_name;
-    pool.query("SELECT sub_symp FROM applications JOIN symtpoms ON applications.symp_id = symtpoms.id WHERE symp_name =$1",[sympByName])
-})
+    pool.query(`SELECT sub_symp FROM applications JOIN symptoms ON applications.symp_id = symptoms.id WHERE symptoms.symp_name ILIKE '%'||$1||'%'`, [sympByName])
+    .then ( (results) => {
+        const subs = results.rows;
+        if (subs.length) {
+            res.status(200).json(subs);
+        } else {
+            res.status(404).send(`There is no sub-symptoms in the database`);
+        }
+        })
+});
 
 //GET all EOs /api/eo
 routes.get("/eo", (req, res) => {
@@ -64,5 +59,11 @@ routes.get("/eo/:eo_name", (req, res) => {
         }
         })
 });
+
+//GET Symptoms by EO /api/eo/lavender
+// SELECT DISTINCT symp_name FROM ess_oils 
+// JOIN applications ON ess_oils.id = applications.eo_id
+// JOIN symptoms ON applications.symp_id = symptoms.id
+// WHERE eo_name = 'Lavender';
 
 module.exports = routes;

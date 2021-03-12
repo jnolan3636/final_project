@@ -10,6 +10,7 @@ import { List } from '../eo';
 export class SymptomsComponent implements OnInit {
   public essentialOils: List[];
   public sympName : string;
+  public subSympName : string;
 
   constructor(public EOAPI: EOAPIService) { }
 

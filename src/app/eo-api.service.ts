@@ -95,4 +95,17 @@ export class EOAPIService {
       )
     }
   }
+  getSubSymptom(subSympName?: string) {
+    if (subSympName) { 
+    this.http.get(this.url + `symptoms/${subSympName}`).subscribe(
+      (resp:any) => {
+        this.sympSearch = resp
+      },
+      (error) => {
+        console.log(error);
+        }
+        
+      )
+    }
+  }
 }

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { List } from './eo';
 import { HttpClient } from '@angular/common/http';
+import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({ providedIn: 'root' })
-
 export class EOAPIService {
-  
   public essentialOils: List[] = [];
   public symptoms: List[];
   public url: string = 'http://localhost:3000/api/';
@@ -14,13 +13,12 @@ export class EOAPIService {
   sympSearch: List[] = [];
   subSearch: List[] = [];
   filter: string = '';
-
+  sympEO: List [] = [];
   constructor(private http: HttpClient) {
     this.essentialOils = [];
     this.symptoms = [];
     this.subSearch = [];
   }
-
 //to get EOs by Name
   getEO(eoName?: string) {
     if (eoName) { 
@@ -31,6 +29,23 @@ export class EOAPIService {
       (error) => {
         console.log(error);
         } //else bring back all or top 3 EOs
+      )
+    }
+  }
+//To get symptoms by EO name
+  getEOSymptom(eoName?: string) {
+    console.log("we are here")
+    if (eoName) { 
+    this.http.get(this.url + `symptom/${eoName}`).subscribe(
+      (resp:any) => {
+      
+        this.sympSearch = resp
+        console.log(this.sympSearch)
+      },
+      (error) => {
+        console.log(error);
+        }
+        //add else to return all subsymptoms
       )
     }
   }
@@ -65,31 +80,54 @@ export class EOAPIService {
       )
     }
   }
-<<<<<<< HEAD
-  getSubSymptom(subSympName?: string) {
-    if (subSympName) { 
-    this.http.get(this.url + `symptoms/${subSympName}`).subscribe(
-      (resp:any) => {
-        this.sympSearch = resp
-=======
-//To get sub symptom by symptom name
+ //To get sub symptom by symptom name
   getSubSymptom(sympName?: string) {
     if (sympName) { 
     this.http.get(this.url + `subsymptoms/${sympName}`).subscribe(
       (resp:any) => {
         this.subSearch = resp
-        console.log("These are the sub symps: ", resp)
->>>>>>> master
       },
       (error) => {
         console.log(error);
         }
-<<<<<<< HEAD
-        
-=======
         //add else to return all subsymptoms
->>>>>>> master
       )
     }
   }
+
+  //To get EO by Symptom name
+  getSympEO(sympName?: string) {
+  
+    if (sympName) { 
+    this.http.get(this.url + `eobysymp/${sympName}`).subscribe(
+      (resp:any) => {
+      
+        this.eoSearch = resp
+        console.log(this.eoSearch)
+      },
+      (error) => {
+        console.log(error);
+        }
+        //add else to return all subsymptoms
+      )
+    }
+  }
+
+    //To get EO by SubSymptom name
+    getSubEO(subSympName?: string) {
+  
+      if (subSympName) { 
+      this.http.get(this.url + `eobysub/${subSympName}`).subscribe(
+        (resp:any) => {
+        
+          this.eoSearch = resp
+          console.log(this.eoSearch)
+        },
+        (error) => {
+          console.log(error);
+          }
+          //add else to return all subsymptoms
+        )
+      }
+    }
 }

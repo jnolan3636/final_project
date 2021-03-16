@@ -3,7 +3,6 @@ import { List } from './eo';
 import { HttpClient } from '@angular/common/http';
 import { stringify } from '@angular/compiler/src/util';
 @Injectable({ providedIn: 'root' })
-
 export class EOAPIService {
   public essentialOils: List[] = [];
   public symptoms: List[];

@@ -34,6 +34,23 @@ export class EOAPIService {
       )
     }
   }
+//To get symptoms by EO name
+  getEOSymptom(eoName?: string) {
+    console.log("we are here")
+    if (eoName) { 
+    this.http.get(this.url + `symptom/${eoName}`).subscribe(
+      (resp:any) => {
+      
+        this.sympSearch = resp
+        console.log(this.sympSearch)
+      },
+      (error) => {
+        console.log(error);
+        }
+        //add else to return all subsymptoms
+      )
+    }
+  }
 //to get ALL oils
   getOil() {
     this.essentialOils = [];
@@ -71,7 +88,6 @@ export class EOAPIService {
     this.http.get(this.url + `subsymptoms/${sympName}`).subscribe(
       (resp:any) => {
         this.subSearch = resp
-        console.log("These are the sub symps: ", resp)
       },
       (error) => {
         console.log(error);
@@ -80,4 +96,40 @@ export class EOAPIService {
       )
     }
   }
+
+  //To get EO by Symptom name
+  getSympEO(sympName?: string) {
+  
+    if (sympName) { 
+    this.http.get(this.url + `eobysymp/${sympName}`).subscribe(
+      (resp:any) => {
+      
+        this.eoSearch = resp
+        console.log(this.eoSearch)
+      },
+      (error) => {
+        console.log(error);
+        }
+        //add else to return all subsymptoms
+      )
+    }
+  }
+
+    //To get EO by SubSymptom name
+    getSubEO(subSympName?: string) {
+  
+      if (subSympName) { 
+      this.http.get(this.url + `eobysub/${subSympName}`).subscribe(
+        (resp:any) => {
+        
+          this.eoSearch = resp
+          console.log(this.eoSearch)
+        },
+        (error) => {
+          console.log(error);
+          }
+          //add else to return all subsymptoms
+        )
+      }
+    }
 }

@@ -15,13 +15,33 @@
     <div *ngFor="let eo of EOAPI.eoSearch">
       <p>{{ eo.eo_name }}</p>
       
-      <img [src]="eo.eo_url" height="50%" width="50%" />
-      <p>Properties: {{ eo.eo_prop }} </p>
+      <div><img [src]="eo.eo_url" height="50%" width="50%" /></div>
+
+        <button (click)="toggle()" id="bt"> {{ buttonName }}: </button>
+          <ng-container *ngIf="show">
+        <div>{{ eo.eo_prop }}</div></ng-container>
+      
       <p>Historical Uses: {{ eo.eo_hist_uses }}</p>
       <p>Body Systems: {{ eo.eo_body_sys }}</p>
       <p>Aroma Description: {{ eo.eo_aroma_desc }}</p>
-    
-      <p>{{ eo.eo_name }} may be useful on the following symptoms:</p>
+
+<h2>Symptoms List</h2>
+<p>{{ eo.eo_name }} may be useful on the following symptoms:</p>
+<button (click)="EOAPI.getEOSymptom(eoName)">Get Symptoms</button>
+<div *ngFor="let symp of EOAPI.sympSearch">
+  <p>{{ symp.symp_name }}</p></div>
+
+
+<!-- <ol>
+  <li *ngFor="let symptom of EOAPI.getEOSymptom(eoName)">
+      <div class="item_container"> 
+          <p class="list">{{ symptom.symp_name }}</p>
+      </div>
+  </li>
+</ol> -->
+<!-- <app-symptom-list>{{ symptom.symp_name }}</app-symptom-list>     -->
+      <!-- <app-symptom-list [villager]="villager"
+      *ngFor="let villager of villagersService.villagers"></app-symptom-list> -->
     </div>
     
   </div>

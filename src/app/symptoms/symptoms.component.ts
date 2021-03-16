@@ -11,6 +11,7 @@ export class SymptomsComponent implements OnInit {
   public essentialOils: List[];
   public subSearch: List[];
   public sympName : string;
+  public seletedValue : string = '';
 
   constructor(public EOAPI: EOAPIService) { }
 

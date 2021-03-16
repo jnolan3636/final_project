@@ -54,7 +54,6 @@ routes.get("/eo", (req, res) => {
                 });
         }
 });
-   
 // GET EO by NAME /api/eo/lavender
 routes.get("/eo/:eo_name", (req, res) => {
     const eoByName = req.params.eo_name;
@@ -69,15 +68,50 @@ routes.get("/eo/:eo_name", (req, res) => {
         })
 });
 
-//GET Symptoms by EO /api/eo/lavender
-// SELECT DISTINCT symp_name FROM ess_oils 
-// JOIN applications ON ess_oils.id = applications.eo_id
-// JOIN symptoms ON applications.symp_id = symptoms.id
-// WHERE eo_name = 'Lavender';
+//GET Symptoms by EO /api/symptom/lavender
+routes.get("/symptom/:eo_name", (req,res) => {
+    const sympByEO = req.params.eo_name;
+    pool.query(`SELECT DISTINCT symp_name FROM ess_oils JOIN applications ON ess_oils.id = applications.eo_id JOIN symptoms ON applications.symp_id = symptoms.id WHERE eo_name ILIKE '%'||$1||'%'  ORDER BY symp_name
+    `, [sympByEO])
+    .then ( (results) => {
+        const symptoms = results.rows;
+        if (symptoms.length) {
+            res.status(200).json(symptoms);
+        } else {
+            res.status(404).send(`There are no symptoms in the database`);
+        }
+        })
+    })
 
-//GET EOs by Symptom 
+//GET EOs by Symptom /api/eobysymp/headache
+routes.get("/eobysymp/:symp_name", (req,res) => {
+    const eoBySymp = req.params.symp_name;
+    pool.query(`SELECT DISTINCT eo_name FROM symptoms JOIN applications ON symptoms.id = applications.symp_id JOIN ess_oils ON applications.eo_id = ess_oils.id WHERE symp_name ILIKE '%'||$1||'%' ORDER BY eo_name
+    `, [eoBySymp])
+    .then ( (results) => {
+        const eos = results.rows;
+        if (eos.length) {
+            res.status(200).json(eos);
+        } else {
+            res.status(404).send(`There are no eos in the database`);
+        }
+        })
+    })
 
+//GET EOs by SubSymptom /api/eobysub/migrane
+routes.get("/eobysub/:symp_name", (req,res) => {
+    const eoBySub = req.params.sub_symp;
+    pool.query(`SELECT DISTINCT eo_name FROM symptoms JOIN applications ON symptoms.id = applications.symp_id JOIN ess_oils ON applications.eo_id = ess_oils.id WHERE sub_symp ILIKE '%'||$1||'%' ORDER BY eo_name
+    `, [eoBySub])
+    .then ( (results) => {
+        const eos = results.rows;
+        if (eos.length) {
+            res.status(200).json(eos);
+        } else {
+            res.status(404).send(`There are no eos in the database`);
+        }
+        })
+    })
 
-//GET EOs by Subsymptom
 
 module.exports = routes;

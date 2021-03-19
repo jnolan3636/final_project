@@ -3,6 +3,7 @@ import { List } from './eo';
 import { HttpClient } from '@angular/common/http';
 
 
+
 @Injectable({ providedIn: 'root' })
 export class EOAPIService {
   public essentialOils: List[] = [];
@@ -19,7 +20,7 @@ export class EOAPIService {
   sub_symp: string = '';
   subEoSearch: List [] = [];
   eoSympArray: List [] = [];
-  eoSubArray: List [] = []
+  
 
   constructor(private http: HttpClient) {
     this.essentialOils = [];
@@ -102,7 +103,7 @@ export class EOAPIService {
     }
   }
 
-  //To get EO by Symptom name
+ // To get EO by Symptom name
   getSympEO(sympName?: string) {
   
     if (sympName) { 
@@ -139,29 +140,29 @@ export class EOAPIService {
 //     }
 // }
     //To get EO by SubSymptom name
-    getSubEO(sub_symp?: string) {
+    // getSubEO(sub_symp?: string) {
   
-      if (sub_symp) { 
-      this.http.get(this.url + `eobysub/${sub_symp}`).subscribe(
-        (resp:any) => {
+    //   if (sub_symp) { 
+    //   this.http.get(this.url + `eobysub/${sub_symp}`).subscribe(
+    //     (resp:any) => {
         
-          this.eoSearch = resp;
-          this.subSymp === true;
-          console.log(this.eoSearch)
-        },
-        (error) => {
+    //       this.eoSearch = resp;
+    //       this.subSymp === true;
+    //       console.log(this.eoSearch)
+    //     },
+    //     (error) => {
           
-          console.log(error);
-          }
-          // add else to return all subsymptoms
-        )
-      }
-    }
+    //       console.log(error);
+    //       }
+    //       // add else to return all subsymptoms
+    //     )
+    //   }
+    // }
   
     getResults(sympName: string, subName?: string) {
   
       if (subName) { 
-        this.http.get(this.url + `symptoms/recommendation/${subName}`).subscribe(
+        this.http.get(this.url + `eobysub/${subName}`).subscribe(
           (resp:any) => {
           
             this.eoSubArray = resp;
@@ -172,7 +173,7 @@ export class EOAPIService {
           }
           else{
             // if(!subName){
-              this.http.get(this.url + `symptoms/recommendation/${sympName}`).subscribe(
+              this.http.get(this.url + `eobysymp/${sympName}`).subscribe(
                 (resp:any) => {
                 
                   this.eoSubArray = resp;
@@ -182,6 +183,10 @@ export class EOAPIService {
           }
           }
     
+<<<<<<< HEAD
   
 
   }
+=======
+      }
+>>>>>>> jamie-feature-branch

@@ -11,12 +11,22 @@ export class SymptomsComponent implements OnInit {
   public essentialOils: List[];
   public subSearch: List[];
   public sympName : string;
-  public seletedValue : string = '';
+  public selectedValue : string = '';
+  public subSymp: boolean;
+  public subSympName: string = '';
 
   constructor(public EOAPI: EOAPIService) { }
 
   ngOnInit(): void {
     this.EOAPI.getSymptom();
   }
+    showSymptom(subSympName?:string) {
+      if(subSympName === null) {
+        this.subSymp === false;
+      }
+      else {
+        this.subSymp === true
+      }
+    };
 
 }

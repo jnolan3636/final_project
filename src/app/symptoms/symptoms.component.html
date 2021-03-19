@@ -70,6 +70,7 @@
   <p>Aromatic Application: {{ symptom.aromatic_appl }}</p>
 </section> -->
 
-<button (click)="EOAPI.getResults(sympName, selectedValue)"> Get Results </button>
+<!-- <button (click)="EOAPI.getResults(sympName, selectedValue?)"> Get Results </button> -->
+<button (click)="EOAPI.getResults(sympName, selectedValue)"> Click Me </button>
 
 <p *ngFor="let eos of EOAPI.eoSubArray"> {{eos.eo_name}} </p>

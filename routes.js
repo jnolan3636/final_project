@@ -97,69 +97,63 @@ routes.get("/symptom/:eo_name", (req, res) => {
 });
 
 //GET EOs by Symptom /api/eobysymp/headache
-// routes.get("/eobysymp/:symp_name", (req,res) => {
-//     const eoBySymp = req.params.symp_name;
-//     pool.query(`SELECT DISTINCT eo_name FROM symptoms JOIN applications ON symptoms.id = applications.symp_id JOIN ess_oils ON applications.eo_id = ess_oils.id WHERE symp_name ILIKE '%'||$1||'%' ORDER BY eo_name
-//     `, [eoBySymp])
-//     .then ( (results) => {
-//         const eos = results.rows;
-//         if (eos.length) {
-//             res.status(200).json(eos);
-//         } else {
-//             res.status(404).send(`There are no eos in the database`);
-//         }
-//         })
-//     })
+routes.get("/eobysymp/:symp_name", (req,res) => {
+    const eoBySymp = req.params.symp_name;
+    pool.query(`SELECT DISTINCT eo_name FROM symptoms JOIN applications ON symptoms.id = applications.symp_id JOIN ess_oils ON applications.eo_id = ess_oils.id WHERE symp_name ILIKE '%'||$1||'%' ORDER BY eo_name
+    `, [eoBySymp])
+    .then ( (results) => {
+        const eos = results.rows;
+        if (eos.length) {
+            res.status(200).json(eos);
+        } else {
+            res.status(404).send(`There are no eos in the database`);
+        }
+        })
+    })
 
 //GET EOs by SubSymptom /api/eobysub/migrane
-// routes.get("/eobysub/:sub_symp", (req,res) => {
-//     const eoBySub = req.params.sub_symp;
-//     pool.query(`SELECT DISTINCT eo_name FROM symptoms JOIN applications ON symptoms.id = applications.symp_id JOIN ess_oils ON applications.eo_id = ess_oils.id WHERE sub_symp ILIKE '%'||$1||'%' ORDER BY eo_name
-//     `, [eoBySub])
-//     .then ( (results) => {
+routes.get("/eobysub/:sub_symp", (req,res) => {
+    const eoBySub = req.params.sub_symp;
+    pool.query(`SELECT DISTINCT eo_name FROM symptoms JOIN applications ON symptoms.id = applications.symp_id JOIN ess_oils ON applications.eo_id = ess_oils.id WHERE sub_symp ILIKE '%'||$1||'%' ORDER BY eo_name
+    `, [eoBySub])
+    .then ( (results) => {
+        const eos = results.rows;
+        if (eos.length) {
+            res.status(200).json(eos);
+        } else {
+            res.status(404).send(`There are no eos in the database`);
+        }
+        })
+    })
+//routes.get("symptoms/recommendation/", (req,res) => {
+//   const eoBySymp = req.params.symp_name;
+//   const eoBySub = req.params.sub_symp;
+
+//   if (eoBySymp) {
+//     pool.query(
+//  `SELECT DISTINCT eo_name FROM symptoms JOIN applications ON symptoms.id = applications.symp_id JOIN ess_oils ON applications.eo_id = ess_oils.id WHERE symp_name ILIKE '%'||$1||'%' ORDER BY eo_name`,[eoBySymp])
+//       .then((results) => {
 //         const eos = results.rows;
 //         if (eos.length) {
-//             res.status(200).json(eos);
+//           res.status(200).json(eos);
 //         } else {
-//             res.status(404).send(`There are no eos in the database`);
+//           res.status(404).send(`There are no eos in the database`);
 //         }
-//         })
-//     })
-routes.get("symptoms/recommendation", (req, res) => {
-  const eoBySymp = req.params.symp_name;
-  const eoBySub = req.params.sub_symp;
+//       });
 
-  if (eoBySymp) {
-    pool
-      .query(
-        `SELECT DISTINCT eo_name FROM symptoms JOIN applications ON symptoms.id = applications.symp_id JOIN ess_oils ON applications.eo_id = ess_oils.id WHERE symp_name ILIKE '%'||$1||'%' ORDER BY eo_name
-    `,[eoBySymp])
-      .then((results) => {
-        const eos = results.rows;
-
-        if (eos.length) {
-          res.status(200).json(eos);
-        } else {
-          res.status(404).send(`There are no eos in the database`);
-        }
-      });
-
-    if (eoBySub) {
-      pool
-        .query(
-          `SELECT DISTINCT eo_name FROM symptoms JOIN applications ON symptoms.id = applications.symp_id JOIN ess_oils ON applications.eo_id = ess_oils.id WHERE sub_symp ILIKE '%'||$1||'%' ORDER BY eo_name`,
-          [eoBySub]
-        )
-        .then((results) => {
-          const eoSub = results.rows;
-          if (eoSub.length) {
-            res.status(200).json(eoSub);
-          } else {
-            res.status(404).send(`There are no eos in the database`);
-          }
-        });
-    }
-  }
-});
+//     if (eoBySub) {
+//       pool.query(
+//     `SELECT DISTINCT eo_name FROM symptoms JOIN applications ON symptoms.id = applications.symp_id JOIN ess_oils ON applications.eo_id = ess_oils.id WHERE sub_symp ILIKE '%'||$1||'%' AND sub_symp NOT NULL ORDER BY eo_name`,
+//           [eoBySub]).then((results) => {
+//           const eoSub = results.rows;
+//           if (eoSub.length) {
+//             res.status(200).json(eoSub);
+//           } else {
+//             res.status(404).send(`There are no eos in the database`);
+//           }
+//         });
+//     }
+//   }
+// });
 
 module.exports = routes;

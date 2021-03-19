@@ -15,11 +15,12 @@ export class EOAPIService {
   subSearch: List[] = [];
   filter: string = '';
   sympEO: List [] = [];
+  eoSubArray: List[] = [];
   subSymp: boolean;
   sub_symp: string = '';
   subEoSearch: List [] = [];
   eoSympArray: List [] = [];
-  eoSubArray: List [] = []
+  
 
   constructor(private http: HttpClient) {
     this.essentialOils = [];
@@ -103,22 +104,22 @@ export class EOAPIService {
   }
 
  // To get EO by Symptom name
-  getSympEO(sympName?: string) {
+  // getSympEO(sympName?: string) {
   
-    if (sympName) { 
-    this.http.get(this.url + `eobysymp/${sympName}`).subscribe(
-      (resp:any) => {
+  //   if (sympName) { 
+  //   this.http.get(this.url + `eobysymp/${sympName}`).subscribe(
+  //     (resp:any) => {
       
-        this.eoSearch = resp
-        console.log(this.eoSearch)
-      },
-      (error) => {
-        console.log(error);
-        }
+  //       this.eoSearch = resp
+  //       console.log(this.eoSearch)
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //       }
         //add else to return all subsymptoms
-      )
-    }
-  }
+  //     )
+  //   }
+  // }
 
     //To get EO by SubSymptom name
 //     getSubEO(subSympName?: string) {
@@ -142,36 +143,34 @@ export class EOAPIService {
     // getSubEO(sub_symp?: string) {
   
     //   if (sub_symp) { 
-    //   this.http.get(this.url + `eobysub/${sub_symp}`).subscribe(
-    //     (resp:any) => {
+    //    this.http.get(this.url + `eobysub/${sub_symp}`).subscribe(
+    //      (resp:any) => {
         
-    //       this.eoSearch = resp;
-    //       this.subSymp === true;
-    //       console.log(this.eoSearch)
-    //     },
-    //     (error) => {
+    //        this.eoSearch = resp;
+    //        this.subSymp === true;
+    //        console.log(this.eoSearch)
+    //      },
+    //      (error) => {
           
-    //       console.log(error);
+    //        console.log(error);
     //       }
-    //       // add else to return all subsymptoms
-    //     )
-    //   }
-    // }
+           // add else to return all subsymptoms
+    //      )
+    //    }
+    //  }
   
     getResults(sympName: string, subName?: string) {
   
       if (subName) { 
         this.http.get(this.url + `eobysub/${subName}`).subscribe(
           (resp:any) => {
-          
-            this.eoSubArray = resp;
+          this.eoSubArray = resp;
            
             console.log(this.eoSubArray);
-        })
-        
-          }
-          else{
-            // if(!subName){
+      })
+        }
+         else{
+         
               this.http.get(this.url + `eobysymp/${sympName}`).subscribe(
                 (resp:any) => {
                 

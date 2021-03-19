@@ -135,9 +135,28 @@ routes.get("/eobysub/:sub_symp", (req,res) => {
         }
         })
     })
-//routes.get("symptoms/recommendation/", (req,res) => {
+// routes.get("symptoms/recommendation/", (req,res) => {
 //   const eoBySymp = req.params.symp_name;
 //   const eoBySub = req.params.sub_symp;
+
+
+//     if (eoBySub) {
+//       pool
+//         .query(
+//           `SELECT DISTINCT eo_name FROM symptoms JOIN applications ON symptoms.id = applications.symp_id JOIN ess_oils ON applications.eo_id = ess_oils.id WHERE sub_symp ILIKE '%'||$1||'%' OR sub_symp ILIKE '%'||$1||'%' ORDER BY eo_name`,
+//           [eoBySub]
+//         )
+//         .then((results) => {
+//           const eoSub = results.rows;
+//           if (eoSub.length) {
+//             res.status(200).json(eoSub);
+//           } else {
+//             res.status(404).send(`There are no eos in the database`);
+//           }
+//         });
+//     }
+//   }
+// });
 
 //   if (eoBySymp) {
 //     pool.query(

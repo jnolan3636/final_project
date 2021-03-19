@@ -183,10 +183,4 @@ export class EOAPIService {
           }
           }
     
-<<<<<<< HEAD
-  
-
-  }
-=======
       }
->>>>>>> jamie-feature-branch

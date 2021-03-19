@@ -11,78 +11,19 @@
         </div>
     </div>
     </div> -->
-<h1>Symptoms Checker</h1>
-  <form>
-    <input (ngModelChange)="EOAPI.getSymptom(sympName)" type="select" [(ngModel)]="sympName" name="sympName" placeholder="Input Symptom" />
-  </form>
-
-  <select (click)="EOAPI.getSubSymptom(sympName)" [(ngModel)]="selectedValue" name="subSymp">
-    <option class="dropdown-item" disabled selected value="undefined">Select an Option</option>
-    <option *ngFor="let sub of EOAPI.subSearch" [ngValue]="sub.sub_symp">{{sub.sub_symp}}</option>
-  </select>
-
-<section *ngFor="let symptom of EOAPI.sympSearch">
-  <p> {{symptom.symp_name}} </p>
-  <p> Description: {{symptom.symp_desc}}</p>
-  <p> These Essential Oils may be helpful:</p>
-
-
-  <h2>EO List</h2>
-<p>The following Essential Oils may be helpful with {{ symptom.symp_name }}:</p>
-
-<div *ngIf="selectedValue; elseBlock">
-  <p>This is the sub symptom</p>
-  <button (click)="EOAPI.getSubEO(selectedValue)">Get Sub Essential Oils</button>
-  <div *ngFor="let eo of EOAPI.eoSearch"><p>{{ eo.eo_name }}</p></div>
-
-<ng-template #elseBlock>
-  <p>This is the symptom</p>
-  <button (click)="EOAPI.getSympEO(sympName)">Get Symp Essential Oils</button>
-  <div *ngFor="let eo of EOAPI.eoSearch"><p>{{ eo.eo_name }}</p></div> -->
-</ng-template>
-</div>
- 
-  <!-- ngIf there is a sub symp
-<<<<<<< HEAD
-<button (click)="EOAPI.getSubEO(selectedValue)">Get Essential Oils</button>
-<div *ngFor="let eo of EOAPI.eoSearch">
-  <p>{{ eo.eo_name }}</p></div>
--->
-<!-- <button (click)="EOAPI.getSympEO(sympName)">Get Essential Oils</button>
-<div *ngFor="let eo of EOAPI.eoSearch">
-  <p>{{ eo.eo_name }}</p></div> -->
-
+    <h1>Symptoms Checker</h1>
+    <form>
+      <input (ngModelChange)="EOAPI.getSymptom(sympName)" type="select" [(ngModel)]="sympName" name="sympName" placeholder="Input Symptom" />
+    </form>
   
-  <p> Topical Application: {{symptom.topical_appl}}</p>
-  <p> Aromatic Application: {{symptom.aromatic_appl}} </p>
-</section>
-=======
-  <button (click)="EOAPI.getSubEO(subSympName)">Get Essential Oils</button>
-  <div *ngFor="let eo of EOAPI.eoSearch">
-    <p>{{ eo.eo_name }}</p></div>
-  -->
-  <!-- <button (click) ="showSymptom(subSympName)" [ngClass]="{'noSub':!subSymp,'withSub':subSymp}">Click</button> -->
-
-  <!-- <button (click)="EOAPI.getEO(sympByName)">Get Essential Oils</button>
-  <div class="noSub" *ngFor="let eo of EOAPI.eoSearch">
-    <p>{{ eo.eo_name }}</p>
-  </div>
-
-  <p>Topical Application: {{ symptom.topical_appl }}</p>
-  <p>Aromatic Application: {{ symptom.aromatic_appl }}</p>
-
-  <button (click)="EOAPI.getSubEO(selectedValue)">Get Essential Oils</button>
-
-  <div class="withSub" class="subSymp" *ngFor="let eo of EOAPI.subEoSearch">
-    <p>{{ eo.sub }}</p>
-  </div>
-
-  <p>Topical Application: {{ symptom.topical_appl }}</p>
-  <p>Aromatic Application: {{ symptom.aromatic_appl }}</p>
-</section> -->
-
-<!-- <button (click)="EOAPI.getResults(sympName, selectedValue?)"> Get Results </button> -->
-<button (click)="EOAPI.getResults(sympName, selectedValue)"> Click Me </button>
-
-<p *ngFor="let eos of EOAPI.eoSubArray"> {{eos.eo_name}} </p>
->>>>>>> jamie-feature-branch
+    <select (click)="EOAPI.getSubSymptom(sympName)" [(ngModel)]="selectedValue" name="subSymp">
+      <option class="dropdown-item" disabled selected value="undefined">Select an Option</option>
+      <option *ngFor="let sub of EOAPI.subSearch" [ngValue]="sub.sub_symp">{{sub.sub_symp}}</option>
+    </select>
+    
+   
+  
+  <button (click)="EOAPI.getResults(sympName, selectedValue)"> Click Me </button>
+  <p *ngFor="let eos of EOAPI.eoSubArray"> {{eos.eo_name}} </p>
+  
+    

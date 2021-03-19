@@ -14,6 +14,7 @@ export class EOAPIService {
   subSearch: List[] = [];
   filter: string = '';
   sympEO: List [] = [];
+  eoSubArray: List[] = [];
   constructor(private http: HttpClient) {
     this.essentialOils = [];
     this.symptoms = [];
@@ -130,4 +131,21 @@ export class EOAPIService {
         )
       }
     }
-}
+
+    getResults(sympName: string, subName?: string) {
+      if (subName) { 
+        this.http.get(this.url + `symptoms/recommendation/${subName}`).subscribe(
+          (resp:any) => {
+            this.eoSubArray = resp;
+            console.log(this.eoSubArray)
+          })
+          }
+          else{
+              this.http.get(this.url + `symptoms/recommendation/${sympName}`).subscribe(
+                (resp:any) => {
+                  this.eoSubArray = resp;
+                  console.log(this.eoSubArray)
+                })
+          }
+    }
+  }

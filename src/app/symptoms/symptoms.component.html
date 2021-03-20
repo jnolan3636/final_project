@@ -1,29 +1,27 @@
-<!-- <input type="text" name="filter" [(ngModel)]="filter" placeholder="Symptoms"/> -->
 
-<!-- <div class="search-wrapper">
-    <div class="wrap">
-    
-        <div class="search">
-           <input type="text" class="searchTerm" [(ngModel)]="searchTerm" placeholder="Search over 10 symptoms>
-           <button type="submit" class="searchButton" (click)="recipeService.getRecipes(searchTerm)" routerLink="/recipes">
-             <i class="fa fa-search"></i>
-          </button>
-        </div>
-    </div>
-    </div> -->
     <h1>Symptoms Checker</h1>
     <form>
-      <input (ngModelChange)="EOAPI.getSymptom(sympName)" type="select" [(ngModel)]="sympName" name="sympName" placeholder="Input Symptom" />
-    </form>
-  
-    <select (click)="EOAPI.getSubSymptom(sympName)" [(ngModel)]="selectedValue" name="subSymp">
-      <option class="dropdown-item" disabled selected value="undefined">Select an Option</option>
+      <button (click)="EOAPI.getAllSymp()"> Click Me </button>
+      <select (ngModelChange)="EOAPI.getSubSymptom()" type="select" [(ngModel)]="sympName" name="sympName" placeholder="Input Symptom">
+        <option *ngFor="let symp of EOAPI.symptoms"> {{symp.symp_name}}</option>
+      </select>
+    <select (click)="EOAPI.getSubSymptom(sympName)" [(ngModel)]="subName" name="subName">
+     
       <option *ngFor="let sub of EOAPI.subSearch" [ngValue]="sub.sub_symp">{{sub.sub_symp}}</option>
     </select>
     
-   
+    <button (click)= "EOAPI.getSymptom(sympName)" (click) = "EOAPI.getResults(sympName, subName)"> Get Info </button>        
+    <section *ngFor="let item of EOAPI.sympSearch"> 
+    <h1>{{item.symp_name}}</h1>       
+    <p>{{item.symp_desc}}</p>
+    <p> The recommendated oils include: </p>
+    <p *ngFor="let eos of EOAPI.eoSubArray"> {{eos.eo_name}}</p>   
+    <p> To apply topically: {{item.topical_appl}}</p>
+    <p> To use as aroma therapy: {{item.aromatic_appl}}</p>     
+                    
+  </section>
   
-  <button (click)="EOAPI.getResults(sympName, selectedValue)"> Click Me </button>
-  <p *ngFor="let eos of EOAPI.eoSubArray"> {{eos.eo_name}} </p>
+  <!-- <p *ngFor="let eos of EOAPI.eoSubArray">  </p> -->
+  <!-- <p *ngFor="let item of EOAPI.eoSubArray"> {{item.eo_name}}</p> -->
   
     

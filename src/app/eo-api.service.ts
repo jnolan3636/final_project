@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { List } from './eo';
 import { HttpClient } from '@angular/common/http';
-import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({ providedIn: 'root' })
 export class EOAPIService {
@@ -14,6 +13,8 @@ export class EOAPIService {
   subSearch: List[] = [];
   filter: string = '';
   sympEO: List [] = [];
+  randomTerm : List [] = [];
+
   constructor(private http: HttpClient) {
     this.essentialOils = [];
     this.symptoms = [];
@@ -127,6 +128,23 @@ export class EOAPIService {
           console.log(error);
           }
           //add else to return all subsymptoms
+        )
+      }
+    }
+    
+// To get a Random EO
+    getRandom() {
+      let randomNumber: number = Math.floor((Math.random() * 3) + 1);
+      console.log(randomNumber);
+      // let eoId = this.randomTerm[randomNumber];
+      if (randomNumber) { 
+      this.http.get(this.url + `eo/random/${randomNumber}`).subscribe(
+        (resp:any) => {
+          this.randomTerm = resp[0]
+        },
+        (error) => {
+          console.log(error);
+          } 
         )
       }
     }

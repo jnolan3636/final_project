@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EOAPIService } from '../eo-api.service';
+import { List } from '../eo';
 
 @Component({
   selector: 'app-home',
@@ -6,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  randomTerm : List [] = [];
 
-  constructor() { }
+  constructor(public EOAPI: EOAPIService) { }
 
   ngOnInit(): void {
   }

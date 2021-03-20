@@ -113,5 +113,18 @@ routes.get("/eobysub/:symp_name", (req,res) => {
         })
     })
 
+// GET Random EO by NAME /api/eo/lavender
+routes.get("/eo/random/:id", (req, res) => {
+    const eoRandomById = req.params.id;
+    pool.query('SELECT * FROM ess_oils WHERE id = $1', [eoRandomById])
+    .then ( (results) => {
+        const eo = results.rows;
+        if (eo.length) {
+            res.status(200).json(eo);
+        } else {
+            res.status(404).send('There is no essential oil');
+        }
+        })
+});
 
 module.exports = routes;

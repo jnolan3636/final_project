@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class EOAPIService {
+  [x: string]: any;
   public essentialOils: List[] = [];
   public symptoms: List[];
   public url: string = 'http://localhost:3000/api/';
@@ -66,6 +67,22 @@ export class EOAPIService {
           if (Object.prototype.hasOwnProperty.call(data, key)) {
             const essentialOil = data[key];
             this.essentialOils.push(essentialOil);
+          }
+        }
+      },
+      (error) => {
+        console.error('there is an error');
+      }
+    );
+  }
+  getAllSymp() {
+   
+    this.http.get(this.url + 'symptoms').subscribe(
+      (data) => {
+        for (const key in data) {
+          if (Object.prototype.hasOwnProperty.call(data, key)) {
+            const symptom = data[key];
+            this.symptoms.push(symptom);
           }
         }
       },
@@ -158,7 +175,7 @@ export class EOAPIService {
     //      )
     //    }
     //  }
-  
+  //START
     getResults(sympName: string, subName?: string) {
   
       if (subName) { 
@@ -180,5 +197,5 @@ export class EOAPIService {
                 })
           }
           }
-    
-      }
+    //END
+        }

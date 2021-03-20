@@ -14,19 +14,12 @@ export class SymptomsComponent implements OnInit {
   public selectedValue : string = '';
   public subSymp: boolean;
   public subSympName: string = '';
-
+  public subName: string = '';
   constructor(public EOAPI: EOAPIService) { }
 
   ngOnInit(): void {
     this.EOAPI.getSymptom();
   }
-    showSymptom(subSympName?:string) {
-      if(subSympName === null) {
-        this.subSymp === false;
-      }
-      else {
-        this.subSymp === true
-      }
-    };
+    
 
 }

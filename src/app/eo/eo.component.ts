@@ -8,10 +8,12 @@ import { EOAPIService } from '../eo-api.service';
   styleUrls: ['./eo.component.css']
 })
 export class EoComponent implements OnInit {
-  constructor(public EOAPI: EOAPIService) { }
+  
   public eoName : string;
   public show : boolean = false;
   public buttonName:any = 'Show Properties';
+ 
+  constructor(public EOAPI: EOAPIService) { }
 
   ngOnInit() {
   this.EOAPI.getOil();

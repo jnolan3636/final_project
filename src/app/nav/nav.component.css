@@ -2,7 +2,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: darkgreen;
+    background-color:rgb(163, 171, 106);
     font-size: 10px;
     align-items: center;
 }
@@ -46,6 +46,10 @@ a {
     max-width: 50%;
     height: auto;  
   }
+
+  img {
+      padding: 0px;
+  }
       
 @media only screen and (min-width: 768px) {
     header {
@@ -84,7 +88,10 @@ a {
 @media only screen and (min-width: 992px) {
 
   header {
-    background-color: limegreen;
-}
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color:rgb(163, 171, 106);
 
+}
 }

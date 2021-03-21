@@ -3,7 +3,6 @@ import { List } from './eo';
 import { HttpClient } from '@angular/common/http';
 
 
-
 @Injectable({ providedIn: 'root' })
 export class EOAPIService {
   [x: string]: any;
@@ -16,6 +15,7 @@ export class EOAPIService {
   subSearch: List[] = [];
   filter: string = '';
   sympEO: List [] = [];
+  randomTerm : List [] = [];
   eoSubArray: List[] = [];
   subSymp: boolean;
   sub_symp: string = '';
@@ -175,27 +175,42 @@ export class EOAPIService {
     //      )
     //    }
     //  }
-  //START
+    
+// To get a Random EO
+    getRandom() {
+      let randomNumber: number = Math.floor((Math.random() * 69) + 14);
+      console.log(randomNumber);
+      // let eoId = this.randomTerm[randomNumber];
+      if (randomNumber) { 
+      this.http.get(this.url + `eo/random/${randomNumber}`).subscribe(
+        (resp:any) => {
+          this.randomTerm[0] = resp[0]
+          console.log(this.randomTerm)
+        },
+        (error) => {
+          console.log(error);
+          } 
+        )
+      }
+    }
+    
+    //START To get all oils by symp or sub symp name
     getResults(sympName: string, subName?: string) {
-  
       if (subName) { 
         this.http.get(this.url + `eobysub/${subName}`).subscribe(
           (resp:any) => {
           this.eoSubArray = resp;
-           
             console.log(this.eoSubArray);
       })
         }
          else{
-         
               this.http.get(this.url + `eobysymp/${sympName}`).subscribe(
                 (resp:any) => {
-                
                   this.eoSubArray = resp;
-                 
                   console.log(this.eoSubArray);
                 })
           }
           }
     //END
-        }
+}
+    

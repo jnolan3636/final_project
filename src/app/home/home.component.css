@@ -6,22 +6,140 @@ h2 {
 a {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.advisory {
-font-size: 10px;
-border: gray;
-border-top: 15px;
-display: flex;
-justify-content: center;
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* #sym {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+#eo {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#random {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+} */
+
+/* img {
+    margin: auto;
+    position: relative;
+    left: 200px;
+    right: 200px;
+} */
+
+img {
+    width: 200px;
+    height: 150px;
+}
+
+/* .random-button {
+    margin: auto;
+    left: 200px;
+    right: 200px;
+    border-radius: 10px;
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(to right, rgb(125, 242, 135), rgb(38, 161, 38), rgb(12, 152, 49), rgb(14, 222, 31), rgb(10, 144, 10), rgb(14, 185, 59))
+} */
+
+#random-term {
+    margin: auto;
+    position: relative;
+    left: 200px;
+    right: 200px;
+    font-size: 16px;
+}
+
+#disclaimer {
+    background-color: aquamarine;
+    display: flex;
+    font-size: 8px;
+    border: gray;
+    text-align: justify;
+}
 
 @media only screen and (min-width: 768px) {
+    /* .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    } */
+
+    /* Three image containers (use 25% for four, and 50% for two, etc) */
+    .header {
+    float: left;
+    width: 32%;
+    padding: 5px;
+  }
+  
+  /* Clear floats after image containers */
+  .container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  #random-term {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ font-size: 16px;
+}
+  
+    /* #sym {
+        display: flex;
+        flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    #eo {
+        display: flex;
+        flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    #random {
+        display: flex;
+        flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    img {
+        margin: auto;
+        position: relative;
+        left: 200px;
+        right: 200px;
+    } */
+    
+    #disclaimer {
+        background-color: aquamarine;
+        font-size: 10px;
+        border: gray;
+        text-align: justify;
+    }
 
 }
 
 @media only screen and (min-width: 992px) {
+    h2 {
+        color:rgb(163, 171, 106);
+    }
 
 }

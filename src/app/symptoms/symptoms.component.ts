@@ -18,7 +18,7 @@ export class SymptomsComponent implements OnInit {
   constructor(public EOAPI: EOAPIService) { }
 
   ngOnInit(): void {
-    this.EOAPI.getSymptom();
+    this.EOAPI.getAllSymp();
   }
     
 

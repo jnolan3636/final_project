@@ -1,16 +1,23 @@
 
-    <h1>Symptoms Checker</h1>
-    <form>
-      <button (click)="EOAPI.getAllSymp()"> Click Me </button>
-      <select (ngModelChange)="EOAPI.getSubSymptom()" type="select" [(ngModel)]="sympName" name="sympName" placeholder="Input Symptom">
+<h1>Symptoms Checker</h1>
+  <form>
+  <!-- added getAllSymp to ngOnInit in ts file so the click me button isn't needed -->
+    <!-- <button (click)="EOAPI.getAllSymp()"> Click Me getAllSymp </button> -->
+  <!-- took out the ngModelChange in the select statement since it's ot used -->
+    <!-- <select (ngModelChange)="EOAPI.getSubSymptom()" type="select" [(ngModel)]="sympName" name="sympName" placeholder="Input Symptom"> -->
+    <p>Select the Symptom for which you would like more information</p>  
+      <select type="select" [(ngModel)]="sympName" name="sympName" placeholder="Input Symptom">
+  <!-- added an empty option in dropdown, needs more if we keep it -->
+        <option></option> 
         <option *ngFor="let symp of EOAPI.symptoms"> {{symp.symp_name}}</option>
       </select>
-    <select (click)="EOAPI.getSubSymptom(sympName)" [(ngModel)]="subName" name="subName">
-     
-      <option *ngFor="let sub of EOAPI.subSearch" [ngValue]="sub.sub_symp">{{sub.sub_symp}}</option>
+   <p>If there is a secondary, or more defining symptom, select it here</p>
+      <select (click)="EOAPI.getSubSymptom(sympName)" [(ngModel)]="subName" name="subName">
+        <option *ngFor="let sub of EOAPI.subSearch" [ngValue]="sub.sub_symp">{{sub.sub_symp}}</option>
     </select>
-    
+    <p>Once you have selected a Symptom and/or Secondary Symptom, click here</p>
     <button (click)= "EOAPI.getSymptom(sympName)" (click) = "EOAPI.getResults(sympName, subName)"> Get Info </button>        
+    
     <section *ngFor="let item of EOAPI.sympSearch"> 
     <h1>{{item.symp_name}}</h1>       
     <p>{{item.symp_desc}}</p>

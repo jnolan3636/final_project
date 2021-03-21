@@ -4,20 +4,30 @@ header {
     justify-content: space-between;
     background-color: darkgreen;
     font-size: 10px;
+    align-items: center;
 }
 
 .header ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    overflow: hidden;
-  }
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+a {
+  color: white;
+  padding: 5px;
+  text-decoration: none;
+  font-size: 12px;
+  display: block;
+}
 
   .header li a {
-    display: block;
+
+    /* display: block;
     color: #414141;
     padding: 10px 10px;
-    text-decoration: none;
+    text-decoration: none; */
   }
    
   .header li a:hover,
@@ -39,18 +49,8 @@ header {
       
 @media only screen and (min-width: 768px) {
     header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
         background-color: mediumaquamarine;
-        align-items: center;
     } 
-     .header ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        overflow: hidden;
-      }
 
       /* .menu-wrapper{
         background: #414141;
@@ -84,9 +84,6 @@ header {
 @media only screen and (min-width: 992px) {
 
   header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     background-color: limegreen;
 }
 

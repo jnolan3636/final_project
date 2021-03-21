@@ -134,13 +134,14 @@ export class EOAPIService {
     
 // To get a Random EO
     getRandom() {
-      let randomNumber: number = Math.floor((Math.random() * 3) + 1);
+      let randomNumber: number = Math.floor((Math.random() * 69) + 14);
       console.log(randomNumber);
       // let eoId = this.randomTerm[randomNumber];
       if (randomNumber) { 
       this.http.get(this.url + `eo/random/${randomNumber}`).subscribe(
         (resp:any) => {
-          this.randomTerm = resp[0]
+          this.randomTerm[0] = resp[0]
+          console.log(this.randomTerm)
         },
         (error) => {
           console.log(error);

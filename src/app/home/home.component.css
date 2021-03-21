@@ -5,11 +5,12 @@ h2 {
 }
 
 .header {
-    position: relative;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#sym {
+/* #sym {
     display: flex;
   justify-content: center;
   align-items: center;
@@ -26,31 +27,36 @@ h2 {
   justify-content: center;
   align-items: center;
   text-align: justify;
-}
+} */
 
-img {
+/* img {
     margin: auto;
     position: relative;
     left: 200px;
     right: 200px;
+} */
+
+img {
+    width: 200px;
+    height: 150px;
 }
 
-.random-button {
+/* .random-button {
     margin: auto;
-    position: relative;
     left: 200px;
     right: 200px;
     border-radius: 10px;
     width: 200px;
     height: 100px;
     background: linear-gradient(to right, rgb(125, 242, 135), rgb(38, 161, 38), rgb(12, 152, 49), rgb(14, 222, 31), rgb(10, 144, 10), rgb(14, 185, 59))
-}
+} */
 
 #random-term {
     margin: auto;
     position: relative;
     left: 200px;
     right: 200px;
+    font-size: 16px;
 }
 
 #disclaimer {
@@ -61,11 +67,34 @@ img {
     text-align: justify;
 }
 
-#random-term {
-    font-size: 16px;
-}
-
 @media only screen and (min-width: 768px) {
+    /* .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    } */
+
+    /* Three image containers (use 25% for four, and 50% for two, etc) */
+    .header {
+    float: left;
+    width: 32%;
+    padding: 5px;
+  }
+  
+  /* Clear floats after image containers */
+  .container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  #random-term {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ font-size: 16px;
+}
+  
     /* #sym {
         display: flex;
         flex-direction: row;
@@ -104,5 +133,8 @@ img {
 }
 
 @media only screen and (min-width: 992px) {
+    h2 {
+        color:rgb(163, 171, 106);
+    }
 
 }

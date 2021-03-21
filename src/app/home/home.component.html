@@ -1,16 +1,39 @@
 <!-- <img src="assets/freelogo.jpg"> -->
 <!-- <h1> eSense - It Makes Scents!</h1> -->
-<div>
-<h2 class="header">Symptoms Checker</h2>
+<div class="container">
+<div class="header"> 
+    <h2 id="sym">Symptoms Checker</h2>
     <a href= '/symptoms'> <img src="assets/bottleswithherbs.jpg" alt="Symptoms">
-    </a>
-<h2 class="header">Essential Oils Info</h2>
-    <a href= '/eo'> <img src="assets/leafdroptobottle.jpg" alt="Essential Oils">
     </a>
 </div>
 
-<div class="advisory">
-<p>The information provided on this web site is intended for basic, general informational purposes only. 
+<div class="header">
+    <h2 id="eo">Essential Oils Info</h2>
+    <a href= '/eo'> <img src="assets/leafdroptobottle.jpg" alt="Essential Oils">
+        <!-- <a href= '/eo'> <img src="assets/EO1.jpg" alt="Essential Oils"> -->
+        </a>
+</div>
+<br>
+
+<!-- <div class="header">
+    <h2 id="random">Get a Random Oil</h2>
+    <img src="assets/leafdroptobottle.jpg" (click)="EOAPI.getRandom()">
+</div>
+<p id="random-term">{{EOAPI.randomTerm.eo_name}}></p> -->
+
+    <div class="header">
+        <h2 id="random">Run the EO Randomizer</h2>
+        <!-- <h2 id="random">Not sure what you're looking for?<br>Get a random oil to get started.</h2> -->
+        <img src="assets/Untitled_Artwork.png" (click)="EOAPI.getRandom()">
+        <!-- <button class="random-button" (click)="EOAPI.getRandom()">RUN THE EO RANDOMIZER</button> -->
+      <p id="random-term">{{EOAPI.randomTerm[0].eo_name}}</p> 
+    </div>
+    </div>
+<br>
+<br>
+
+<div class="container">
+<p id="disclaimer">The information provided on this web site is intended for basic, general informational purposes only. 
     It is not intended as medical advice and it does not include all possible precautions, side effects, 
     or interactions that may occur. The creators of this website do not take responsibility for how you 
     use the information provided. Statements contained on this website have not been evaluated by the FDA. 

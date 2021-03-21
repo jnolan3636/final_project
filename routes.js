@@ -170,6 +170,19 @@ routes.get("/eobysub/:sub_symp", (req,res) => {
 //         }
 //       });
 
+// GET Random EO by NAME /api/eo/lavender
+routes.get("/eo/random/:id", (req, res) => {
+    const eoRandomById = req.params.id;
+    pool.query('SELECT * FROM ess_oils WHERE id = $1', [eoRandomById])
+    .then ( (results) => {
+        const eo = results.rows;
+        if (eo.length) {
+            res.status(200).json(eo);
+        } else {
+            res.status(404).send('There is no essential oil');
+        }
+        })
+});
 //     if (eoBySub) {
 //       pool.query(
 //     `SELECT DISTINCT eo_name FROM symptoms JOIN applications ON symptoms.id = applications.symp_id JOIN ess_oils ON applications.eo_id = ess_oils.id WHERE sub_symp ILIKE '%'||$1||'%' AND sub_symp NOT NULL ORDER BY eo_name`,

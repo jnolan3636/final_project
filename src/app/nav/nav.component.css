@@ -2,7 +2,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* background-color: mediumaquamarine; */
+    background-color:rgb(163, 171, 106);
     font-size: 10px;
 }
 
@@ -15,7 +15,7 @@ header {
 
   .header li a {
     display: block;
-   color: #414141;
+    color: #414141;
     padding: 10px 10px;
     text-decoration: none;
   }
@@ -25,13 +25,16 @@ header {
     background-color: rgba(0, 0, 0, 0.10);
   }
 
-  .header .logo {
+  /* .header .logo { */
+  #logo {
     color: #fff;
     display: block;
     float: left;
     font-size: 1.5em;
     padding: 12px 20px;
     text-decoration: none;
+    max-width: 50%;
+    height: auto;  
   }
 
   img {
@@ -43,10 +46,10 @@ header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        /* background-color: mediumaquamarine; */
+        background-color: mediumaquamarine;
         align-items: center;
-    }
-    .header ul {
+    } 
+     .header ul {
         margin: 0;
         padding: 0;
         list-style: none;
@@ -84,4 +87,11 @@ header {
 
 @media only screen and (min-width: 992px) {
 
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color:rgb(163, 171, 106);
+
+}
 }

@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { List } from './eo';
 import { HttpClient } from '@angular/common/http';
 
+
 @Injectable({ providedIn: 'root' })
 export class EOAPIService {
+  [x: string]: any;
   public essentialOils: List[] = [];
   public symptoms: List[];
   public url: string = 'http://localhost:3000/api/';
@@ -14,6 +16,12 @@ export class EOAPIService {
   filter: string = '';
   sympEO: List [] = [];
   randomTerm : List [] = [];
+  eoSubArray: List[] = [];
+  subSymp: boolean;
+  sub_symp: string = '';
+  subEoSearch: List [] = [];
+  eoSympArray: List [] = [];
+  
 
   constructor(private http: HttpClient) {
     this.essentialOils = [];
@@ -67,6 +75,22 @@ export class EOAPIService {
       }
     );
   }
+  getAllSymp() {
+   
+    this.http.get(this.url + 'symptoms').subscribe(
+      (data) => {
+        for (const key in data) {
+          if (Object.prototype.hasOwnProperty.call(data, key)) {
+            const symptom = data[key];
+            this.symptoms.push(symptom);
+          }
+        }
+      },
+      (error) => {
+        console.error('there is an error');
+      }
+    );
+  }
 //To get symptom by Name
   getSymptom(sympName?: string) {
     if (sympName) { 
@@ -96,41 +120,61 @@ export class EOAPIService {
     }
   }
 
-  //To get EO by Symptom name
-  getSympEO(sympName?: string) {
+ // To get EO by Symptom name
+  // getSympEO(sympName?: string) {
   
-    if (sympName) { 
-    this.http.get(this.url + `eobysymp/${sympName}`).subscribe(
-      (resp:any) => {
+  //   if (sympName) { 
+  //   this.http.get(this.url + `eobysymp/${sympName}`).subscribe(
+  //     (resp:any) => {
       
-        this.eoSearch = resp
-        console.log(this.eoSearch)
-      },
-      (error) => {
-        console.log(error);
-        }
+  //       this.eoSearch = resp
+  //       console.log(this.eoSearch)
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //       }
         //add else to return all subsymptoms
-      )
-    }
-  }
+  //     )
+  //   }
+  // }
 
     //To get EO by SubSymptom name
-    getSubEO(subSympName?: string) {
-  
-      if (subSympName) { 
-      this.http.get(this.url + `eobysub/${subSympName}`).subscribe(
-        (resp:any) => {
+//     getSubEO(subSympName?: string) {
+//      console.log(subSympName);
+//       if (subSympName) { 
+//       this.http.get(this.url + `eobysub/${subSympName}`).subscribe(
+//         (resp:any) => {
         
-          this.eoSearch = resp
-          console.log(this.eoSearch)
-        },
-        (error) => {
-          console.log(error);
-          }
-          //add else to return all subsymptoms
-        )
-      }
-    }
+//           this.subEoSearch = resp
+//           console.log(this.subEoSearch)
+//         },
+//         (error) => {
+//           console.log(error);
+//           }
+//           //add else to return all subsymptoms
+//         )
+//       }
+//     }
+// }
+    //To get EO by SubSymptom name
+    // getSubEO(sub_symp?: string) {
+  
+    //   if (sub_symp) { 
+    //    this.http.get(this.url + `eobysub/${sub_symp}`).subscribe(
+    //      (resp:any) => {
+        
+    //        this.eoSearch = resp;
+    //        this.subSymp === true;
+    //        console.log(this.eoSearch)
+    //      },
+    //      (error) => {
+          
+    //        console.log(error);
+    //       }
+           // add else to return all subsymptoms
+    //      )
+    //    }
+    //  }
     
 // To get a Random EO
     getRandom() {
@@ -149,4 +193,24 @@ export class EOAPIService {
         )
       }
     }
+    
+    //START To get all oils by symp or sub symp name
+    getResults(sympName: string, subName?: string) {
+      if (subName) { 
+        this.http.get(this.url + `eobysub/${subName}`).subscribe(
+          (resp:any) => {
+          this.eoSubArray = resp;
+            console.log(this.eoSubArray);
+      })
+        }
+         else{
+              this.http.get(this.url + `eobysymp/${sympName}`).subscribe(
+                (resp:any) => {
+                  this.eoSubArray = resp;
+                  console.log(this.eoSubArray);
+                })
+          }
+          }
+    //END
 }
+    

@@ -7,6 +7,7 @@ import { EoComponent} from './eo/eo.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'symptoms', component: SymptomsComponent},
+  {path: 'symptoms/:symp_name', component: SymptomsComponent},
   {path: 'eo', component: EoComponent},
 
 ];

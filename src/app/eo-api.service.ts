@@ -8,8 +8,8 @@ export class EOAPIService {
   [x: string]: any;
   public essentialOils: List[] = [];
   public symptoms: List[];
-  // public url: string = 'http://localhost:3000/api/';
-  public url: string = 'https://group-1-final-project-esense.herokuapp.com/api/';
+  public url: string = 'http://localhost:3000/api/';
+  // public url: string = 'https://group-1-final-project-esense.herokuapp.com/api/';
   eoSearch: List[] = [];
   sympSearch: List[] = [];
   subSearch: List[] = [];
@@ -34,6 +34,7 @@ export class EOAPIService {
     this.http.get(this.url + `eo/${eoName}`).subscribe(
       (resp:any) => {
         this.eoSearch = resp
+        console.log(resp);
       },
       (error) => {
         console.log(error);
@@ -71,7 +72,7 @@ export class EOAPIService {
         }
       },
       (error) => {
-        console.error('there is an error');
+        console.error('there is an error with getOil function');
       }
     );
   }
@@ -87,7 +88,7 @@ export class EOAPIService {
         }
       },
       (error) => {
-        console.error('there is an error');
+        console.error('there is an error with getAllSymp function');
       }
     );
   }

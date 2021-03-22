@@ -1,6 +1,61 @@
 #bt {
-    border: none;
+    border: darkgray;
+    border-radius: 10px;
     font-size: 20px;
     text-decoration: none;
-    background-color: white;
+    background-color: rgb(243, 225, 60);
 }
+
+img {
+    height: fit-content;
+    width: fit-content;
+}
+
+/* .properties {
+    outline-style: solid;
+    outline-color: gray;
+    outline-width: 1px;
+    outline-offset: 5px;
+} */
+
+.infoheader {
+    border: darkgray;
+    border-style: solid;
+    border-top-right-radius: 30px 20px;
+    border-top-left-radius: 30px 20px;
+    background-color: rgba(202, 184, 102, 0.911);
+    padding: 5px 20px;
+    margin-left: 20px;
+}
+
+.info {
+    border-left: darkgray;
+    border-right: darkgray;
+    border-bottom: darkgray;
+    border-style: solid;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 30px 5px;
+}
+
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  @media only screen and (min-width: 768px) {
+
+    .container {
+        float: right;
+    }
+
+    img {
+        float: left;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+
+  }

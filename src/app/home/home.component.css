@@ -1,6 +1,11 @@
 h2 {
     display: flex;
     justify-content: center;
+}
+
+a {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -60,11 +65,16 @@ img {
 }
 
 #disclaimer {
-    background-color: aquamarine;
+    background-color: none;
     display: flex;
-    font-size: 8px;
-    border: gray;
+    font-size: 6px;
     text-align: justify;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    padding: 10px;
+    margin: 10px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -125,9 +135,11 @@ img {
     
     #disclaimer {
         background-color: aquamarine;
-        font-size: 10px;
+        font-size: 8px;
         border: gray;
         text-align: justify;
+        display: flex;
+        /* text-align: end; */
     }
 
 }
@@ -135,6 +147,17 @@ img {
 @media only screen and (min-width: 992px) {
     h2 {
         color:rgb(163, 171, 106);
+        font: bold;
+    }
+
+    #disclaimer {
+        background-color:rgb(163, 171, 106);
+        font-size: 8px;
+        border: gray;
+        text-align: justify;
+        display: flex;
+        align-content: flex-end;
+        /* text-align: end; */
     }
 
 }

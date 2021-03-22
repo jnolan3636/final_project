@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EOAPIService } from '../eo-api.service';
 import { List } from '../eo';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-symptoms',
@@ -15,7 +17,11 @@ export class SymptomsComponent implements OnInit {
   public subSymp: boolean;
   public subSympName: string = '';
   public subName: string = '';
-  constructor(public EOAPI: EOAPIService) { }
+  constructor(public EOAPI: EOAPIService, private _Activatedroute:ActivatedRoute) {
+    let result=this._Activatedroute.snapshot.paramMap.get("symp_name");
+    console.log(result);
+    this.EOAPI.getSymptom(result);
+  }
 
   ngOnInit(): void {
     this.EOAPI.getAllSymp();

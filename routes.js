@@ -55,16 +55,16 @@ routes.get("/eo", (req, res) => {
             res.json(result.rows)
         });
     
-        if (req.query.prefix) {
-            pool.query('SELECT * FROM ess_oils LIKE $1', [req.query.prefix + "%"]).then((result) => {
-            res.json(result.rows)
-            });
-        }
-        else{
-            pool.query('SELECT * FROM ess_oils').then((result) => {
-                res.json(result.rows);
-                });
-        }
+        // if (req.query.prefix) {
+        //     pool.query('SELECT * FROM ess_oils LIKE $1', [req.query.prefix + "%"]).then((result) => {
+        //     res.json(result.rows)
+        //     });
+        // }
+        // else{
+        //     pool.query('SELECT * FROM ess_oils').then((result) => {
+        //         res.json(result.rows);
+        //         });
+        // }
 });
 // GET EO by NAME /api/eo/lavender
 routes.get("/eo/:eo_name", (req, res) => {

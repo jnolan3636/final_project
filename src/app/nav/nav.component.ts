@@ -9,10 +9,10 @@ export class NavComponent implements OnInit {
 
   constructor() { }
 
-  menuIsVisible: boolean = false;
-  toggleMenu(): void {
-     this.menuIsVisible = !this.menuIsVisible;
-   }
+  // menuIsVisible: boolean = false;
+  // toggleMenu(): void {
+  //    this.menuIsVisible = !this.menuIsVisible;
+  //  }
 
   ngOnInit(): void {
   }

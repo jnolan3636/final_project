@@ -552,8 +552,8 @@ class EOAPIService {
     constructor(http) {
         this.http = http;
         this.essentialOils = [];
-        this.url = 'http://localhost:3000/api/';
-        // public url: string = 'https://group-1-final-project-esense.herokuapp.com/api/';
+        // public url: string = 'http://localhost:3000/api/';
+        this.url = 'https://group-1-final-project-esense.herokuapp.com/api/';
         this.eoSearch = [];
         this.sympSearch = [];
         this.subSearch = [];

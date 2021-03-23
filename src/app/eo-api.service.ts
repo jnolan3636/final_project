@@ -8,8 +8,8 @@ export class EOAPIService {
   [x: string]: any;
   public essentialOils: List[] = [];
   public symptoms: List[];
-  public url: string = 'http://localhost:3000/api/';
-  // public url: string = 'https://group-1-final-project-esense.herokuapp.com/api/';
+  // public url: string = 'http://localhost:3000/api/';
+  public url: string = 'https://group-1-final-project-esense.herokuapp.com/api/';
   eoSearch: List[] = [];
   sympSearch: List[] = [];
   subSearch: List[] = [];

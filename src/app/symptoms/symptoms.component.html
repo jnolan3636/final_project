@@ -22,7 +22,8 @@
     <h1>{{item.symp_name}}</h1>       
     <p>{{item.symp_desc}}</p>
     <p> The recommendated oils include: </p>
-    <p *ngFor="let eos of EOAPI.eoSubArray"> {{eos.eo_name}}</p>   
+    <p *ngFor="let eos of EOAPI.eoSubArray">
+    <a [routerLink]="['/eo', eos.eo_name]">{{ eos.eo_name }}</a> 
     <p> To apply topically: {{item.topical_appl}}</p>
     <p> To use as aroma therapy: {{item.aromatic_appl}}</p>     
                     

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { List } from '../eo';
 import { EOAPIService } from '../eo-api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-eo',
@@ -13,8 +14,11 @@ export class EoComponent implements OnInit {
   public show : boolean = false;
   public buttonName:any = 'Show Properties';
  
-  constructor(public EOAPI: EOAPIService) { }
-
+  constructor(public EOAPI: EOAPIService, private _Activatedroute:ActivatedRoute) {
+    let result=this._Activatedroute.snapshot.paramMap.get("eo_name");
+    console.log(result);
+    this.EOAPI.getEO(result);
+  }
   ngOnInit() {
   this.EOAPI.getOil();
   }

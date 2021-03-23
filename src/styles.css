@@ -2,6 +2,7 @@
 body {
     font-family: 'Paprika';
     display: flex;
+    /* flex-direction: column; */
     align-items: center;
     margin: auto;
     /* background: linear-gradient(to right, #0634a1, #15be69); */

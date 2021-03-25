@@ -2,3 +2,65 @@
     display: flex;
     flex-direction: row;
 }
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.divider img {
+    height: 10%;
+    width: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+select, button {
+    font-size: 10pt;
+    font-family: Paprika;
+    width: 200px;
+    background-color: rgb(229, 250, 245); 
+    border-radius: 5px;
+    outline: none;
+}
+
+.infoheader {
+    border: darkgray;
+    border-style: solid;
+    border-top-right-radius: 30px 20px;
+    border-top-left-radius: 30px 20px;
+    background-color: #9BCD9B;
+    padding: 5px 20px;
+}
+
+.infobox {
+    border-left: darkgray;
+    border-right: darkgray;
+    border-bottom: darkgray;
+    border-style: solid;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px 5px;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    .infoheader {
+        background-color: #feffef
+    }
+
+}
+
+
+@media only screen and (min-width: 992px) {
+    .infoheader {
+        background-color: #90EE90;
+    }
+  }

@@ -1,55 +1,60 @@
-
 <h1>Essential Oils</h1>
-<!-- <p *ngFor="let oil of EOAPI.essentialOils"> {{oil.eo_name}} </p> -->
 
-<!-- <form>
-    <input type="text" name="filter" [(ngModel)]="filter" placeholder="Enter Essential Oil Name" />
-</form> -->
+<div class="divider">
+<img src="assets/Hand_drawn_flowers_doodle.jpg" alt="flower doodle">
+</div>
 
 <form>
-    <input (ngModelChange)="EOAPI.getEO(eoName)" type="text" [(ngModel)]="eoName" name="eoName" placeholder="Input Essential Oil Name" />
+  <p>Enter the name of an Essential Oil for which you would like more information</p>
+  <input
+    (ngModelChange)="EOAPI.getEO(eoName)"
+    type="text"
+    [(ngModel)]="eoName"
+    name="eoName"
+    placeholder="Input Essential Oil Name"
+  />
 </form>
 
-  <div class="container">
-    <div *ngFor="let eo of EOAPI.eoSearch">
-      <h2>{{ eo.eo_name }}</h2>
-          <div><img [src]="eo.eo_url"/></div>
+<div class="container">
+  <div *ngFor="let eo of EOAPI.eoSearch">
+    <h2>{{ eo.eo_name }}</h2>
+    <div class="info">
+      <img [src]="eo.eo_url" />
+
+      <div class="infoheader"><h3>Symptoms List</h3></div>
+        <div class="infobox">  <p>
+            Use the button below to find out on which symptoms {{ eo.eo_name }} may be
+            useful:
+          </p>
+          <button (click)="EOAPI.getEOSymptom(eoName)">Get Symptoms</button>
+          
+          <div class="wrapper" >
+            <div class="list1"><div *ngFor="let symp of EOAPI.sympSearch;let i=index"><a [routerLink]="['/symptoms', symp.symp_name]" *ngIf="i%2==0">{{ symp.symp_name }}</a></div></div>
+            <div class="list2"><div *ngFor="let symp of EOAPI.sympSearch;let i=index"><a [routerLink]="['/symptoms', symp.symp_name]" *ngIf="i%2!=0">{{ symp.symp_name }}</a></div></div>
+          </div>
+        </div>
+<br>
+<br>
+    <div class="infoheader">
+      <button (click)="toggle()" id="bt"><h3>{{ buttonName }}:</h3></button></div>
       
-        <button (click)="toggle()" id="bt"> {{ buttonName }}: </button>
-        <div class="properties">  
-        <ng-container *ngIf="show"><div>{{ eo.eo_prop }}</div></ng-container>
+      <ng-container *ngIf="show">
+        <div class="infobox">
+          <div class="title">Properties:</div>
+          <div>{{ eo.eo_prop }}</div>
+            <p></p>
+          <div class="title">Historical Uses:</div>
+          <div>{{ eo.eo_hist_uses }}</div>
+            <p></p>
+          <div class="title">Body Systems:</div>
+          <div>{{ eo.eo_body_sys }}</div>
+            <p></p>
+          <div class="title">Aroma Description:</div>
+          <div>{{ eo.eo_aroma_desc }}</div>
+        </div></ng-container>
       </div>
-<p></p>
-      <div class="infoheader">Historical Uses:</div>
-      <div class="info"> {{ eo.eo_hist_uses }}</div>
-<p></p>
-      <div class="infoheader">Body Systems:</div> 
-      <div class="info">{{ eo.eo_body_sys }}</div>
-<p></p>
-      <div class="infoheader">Aroma Description:</div>
-      <div class="info">{{ eo.eo_aroma_desc }}</div>
 
-  <h2>Symptoms List</h2>
-  <p>Use the button below to find out on which symptoms {{ eo.eo_name }} may be useful:</p>
-    <button (click)="EOAPI.getEOSymptom(eoName)">Get Symptoms</button>
-      <div *ngFor="let symp of EOAPI.sympSearch" [ngClass]="wrapper">
-        <a [routerLink]="['/symptoms', symp.symp_name]">{{ symp.symp_name }}</a>
-      </div>
+
+  </div>
 </div>
-<!-- *ngFor="let linkItem of linkItems"
-class="{{linkItem.className}}" 
-routerLink="{{linkItem.routerLink}}"
-(click)="listItemClickToggle(linkItem)">
-{{linkItem.linkName}} -->
 
-
-<!-- <ol>
-  <li *ngFor="let symptom of EOAPI.getEOSymptom(eoName)">
-      <div class="item_container"> 
-          <p class="list">{{ symptom.symp_name }}</p>
-      </div>
-  </li>
-</ol> -->
-<!-- <app-symptom-list>{{ symptom.symp_name }}</app-symptom-list>     -->
-      <!-- <app-symptom-list [villager]="villager"
-      *ngFor="let villager of villagersService.villagers"></app-symptom-list> -->

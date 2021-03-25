@@ -12,7 +12,7 @@ export class EoComponent implements OnInit {
   
   public eoName : string;
   public show : boolean = false;
-  public buttonName:any = 'Show Properties';
+  public buttonName:any = 'Show Essential Oil Information';
  
   constructor(public EOAPI: EOAPIService, private _Activatedroute:ActivatedRoute) {
     let result=this._Activatedroute.snapshot.paramMap.get("eo_name");
@@ -26,8 +26,8 @@ export class EoComponent implements OnInit {
   toggle() {
     this.show = !this.show;
     if(this.show)
-      this.buttonName = "Hide Properties";
+      this.buttonName = "Hide Essential Oil Information";
     else
-      this.buttonName = "Show Properties";
+      this.buttonName = "Show Essential Oil Information";
   }
 }

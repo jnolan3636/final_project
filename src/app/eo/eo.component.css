@@ -31,7 +31,7 @@ input {
     font-size: 10pt;
     font-family: Paprika;
     width: 200px;
-    background-color: rgb(229, 250, 245); 
+    background-color: #9BCD9B; 
     border-radius: 5px;
 }
 
@@ -39,7 +39,7 @@ button {
     font-size: 10pt;
     font-family: Paprika;
     width: 150px;
-    background-color: rgb(229, 250, 245); 
+    background-color: #9BCD9B; 
     border-radius: 5px;
     text-align: left;
     outline: none;
@@ -115,7 +115,19 @@ button {
 @media only screen and (min-width: 768px) {
 
     .infoheader {
-        background-color: #feffef
+        background-color: #e5faf5;
+    }
+    
+    select, button {
+        background-color: #e5faf5; 
+    }
+
+    input {
+        background-color: #e5faf5; 
+    }
+    
+    button {
+        background-color: #e5faf5; 
     }
 /* .container {
     float: right;
@@ -139,6 +151,18 @@ button {
 
 @media only screen and (min-width: 992px) {
     .infoheader {
-        background-color: #90EE90;
+        background-color: #f4f4d7;
+    }
+    
+    select, button {
+        background-color: #f4f4d7; 
+    }
+
+    input {
+        background-color: #f4f4d7; 
+    }
+    
+    button {
+        background-color: #f4f4d7; 
     }
   }

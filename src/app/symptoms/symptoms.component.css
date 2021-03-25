@@ -13,6 +13,10 @@ h2 {
     justify-content: center;
 }
 
+h3 {
+    font-size: 18px;
+}
+
 .divider img {
     height: 10%;
     width: 10%;
@@ -25,7 +29,7 @@ select, button {
     font-size: 10pt;
     font-family: Paprika;
     width: 200px;
-    background-color: rgb(229, 250, 245); 
+    background-color: #9BCD9B; 
     border-radius: 5px;
     outline: none;
 }
@@ -49,18 +53,40 @@ select, button {
     padding: 10px 5px;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border-bottom: 1px solid black; */
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.title {
+    font-weight: 700;
+}
+
 
 @media only screen and (min-width: 768px) {
 
-    .infoheader {
-        background-color: #feffef
-    }
+.infoheader {
+    background-color: #e5faf5;
+}
+
+select, button {
+    background-color: #e5faf5; 
+}
 
 }
 
 
 @media only screen and (min-width: 992px) {
-    .infoheader {
-        background-color: #90EE90;
-    }
-  }
+.infoheader {
+    background-color: #f4f4d7;
+}
+
+select, button {
+    background-color: #f4f4d7; 
+}
+
+}

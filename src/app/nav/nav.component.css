@@ -75,7 +75,7 @@ header {
   /* display: flex;
   flex-direction: row;
   justify-content: space-between; */
-  background-color:rgb(199, 205, 140);
+  background-color:#868e3e;
   border: none;
   padding-top: 50px;
   margin: auto;
@@ -91,6 +91,7 @@ ul{
  ul li{
   margin: 0px;
   padding-top: 70px;
+  font-weight: 700;
   float: right;
  }
 

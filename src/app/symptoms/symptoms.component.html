@@ -23,16 +23,26 @@
     <h1>{{item.symp_name}}</h1>       
     <p>{{item.symp_desc}}</p>
     
-    <div class="infoheader"><p>Recommended Essential Oils </p></div>
-    <div *ngFor="let eos of EOAPI.eoSubArray">
-      <div class="infobox">
-        <a [routerLink]="['/eo', eos.eo_name]">{{ eos.eo_name }}</a>
+    <div class="infoheader">
+      <h3>Recommended Essential Oils</h3>
+    </div>
+    
+    <div class="infobox">
+      <div class="wrapper">
+        <div class="list1"><div *ngFor="let eos of EOAPI.eoSubArray;let i=index"><a [routerLink]="['/eo', eos.eo_name]" *ngIf="i%2==0">{{ eos.eo_name }}</a></div></div>
+        <div class="list2"><div *ngFor="let eos of EOAPI.eoSubArray;let i=index"><a [routerLink]="['/eo', eos.eo_name]" *ngIf="i%2!=0">{{ eos.eo_name }}</a></div></div>
       </div>
     </div>
+
       <br>
-    <div class="infoheader"><p>Application</p></div>
-    <div class="infobox"><p> To apply topically: {{item.topical_appl}}</p>
-      <p> To use as aroma therapy: {{item.aromatic_appl}}</p>
+    
+      <div class="infoheader"><h3>Application</h3></div>
+    <div class="infobox">
+      <div class="title">To apply topically:</div>
+      <div> {{item.topical_appl}}</div>
+        <br>
+      <div class="title">To use as aroma therapy:</div>
+      <div> {{item.aromatic_appl}}</div>
     </div> 
                     
   </section>

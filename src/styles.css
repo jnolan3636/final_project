@@ -1,16 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     font-family: 'Paprika';
-    display: flex;
+    /* display: flex; */
     /* flex-direction: column; */
     /* align-items: center; */
-<<<<<<< HEAD
-    /* background: linear-gradient(to right, #0634a1, #15be69); */
-=======
     /* margin: auto; */
     /* background: linear-gradient(to right, #0634a1, #15be69); */
-    /* padding: 5px; */
+    /* padding: 5Opx; */
     height: 100vh;
     width: 100%;
->>>>>>> master
 }

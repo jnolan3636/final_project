@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"version":3,"sources":["src/styles.css"],"names":[],"mappings":"AAAA,8EAA8E;AAC9E;IACI,sBAAsB;IACtB,aAAa;IACb,4BAA4B;IAC5B,yBAAyB;IACzB,6DAA6D;AACjE,C","file":"styles.css","sourcesContent":["/* You can add global styles to this file, and also import other style files */\nbody {\n    font-family: 'Paprika';\n    display: flex;\n    /* flex-direction: column; */\n    /* align-items: center; */\n    /* background: linear-gradient(to right, #0634a1, #15be69); */\n}"],"sourceRoot":"webpack:///"}
+=======
+{"version":3,"sources":["src/styles.css"],"names":[],"mappings":"AAAA,8EAA8E;AAC9E;IACI,sBAAsB;IACtB,aAAa;IACb,4BAA4B;IAC5B,yBAAyB;IACzB,kBAAkB;IAClB,6DAA6D;IAC7D,kBAAkB;IAClB,aAAa;IACb,WAAW;AACf,C","file":"styles.css","sourcesContent":["/* You can add global styles to this file, and also import other style files */\nbody {\n    font-family: 'Paprika';\n    display: flex;\n    /* flex-direction: column; */\n    /* align-items: center; */\n    /* margin: auto; */\n    /* background: linear-gradient(to right, #0634a1, #15be69); */\n    /* padding: 5px; */\n    height: 100vh;\n    width: 100%;\n}"],"sourceRoot":"webpack:///"}
+>>>>>>> master

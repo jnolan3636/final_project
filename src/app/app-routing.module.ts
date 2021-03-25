@@ -10,7 +10,10 @@ const routes: Routes = [
   {path: 'symptoms', component: SymptomsComponent},
   {path: 'symptoms/:symp_name', component: SymptomsComponent},
   {path: 'eo', component: EoComponent},
-  { path: 'about-us', component: AboutUsComponent}
+  { path: 'about-us', component: AboutUsComponent},
+  {path: 'eo/:eo_name', component: EoComponent},
+  
+
 ];
 
 @NgModule({

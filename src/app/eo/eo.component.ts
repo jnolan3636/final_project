@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { List } from '../eo';
 import { EOAPIService } from '../eo-api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-eo',
@@ -11,10 +12,13 @@ export class EoComponent implements OnInit {
   
   public eoName : string;
   public show : boolean = false;
-  public buttonName:any = 'Show Properties';
+  public buttonName:any = 'Show Essential Oil Information';
  
-  constructor(public EOAPI: EOAPIService) { }
-
+  constructor(public EOAPI: EOAPIService, private _Activatedroute:ActivatedRoute) {
+    let result=this._Activatedroute.snapshot.paramMap.get("eo_name");
+    console.log(result);
+    this.EOAPI.getEO(result);
+  }
   ngOnInit() {
   this.EOAPI.getOil();
   }
@@ -22,8 +26,8 @@ export class EoComponent implements OnInit {
   toggle() {
     this.show = !this.show;
     if(this.show)
-      this.buttonName = "Hide Properties";
+      this.buttonName = "Hide Essential Oil Information";
     else
-      this.buttonName = "Show Properties";
+      this.buttonName = "Show Essential Oil Information";
   }
 }

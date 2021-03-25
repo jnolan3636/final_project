@@ -26,9 +26,9 @@ overflow: hidden;
 
 a {
 color: black;
-padding: 5px;
+padding: 10px;
 text-decoration: none;
-font-size: 12px;
+font-size: 14px;
 display: block;
 }
 
@@ -106,6 +106,19 @@ header {
   border: none;
   margin: auto;
 }
+
+ul{
+  list-style-type: none;
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+ }
+
+ ul li{
+  margin: 0px;
+  padding-top: 70px;
+  float: right;
+ }
 
 /* #menu {
   display: flex;

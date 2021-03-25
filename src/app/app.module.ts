@@ -9,6 +9,7 @@ import { EoComponent } from './eo/eo.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { SymptomListComponent } from './symptom-list/symptom-list.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { SymptomListComponent } from './symptom-list/symptom-list.component';
     SymptomsComponent,
     EoComponent,
     NavComponent,
-    SymptomListComponent
+    SymptomListComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

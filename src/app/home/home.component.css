@@ -102,7 +102,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
- font-size: 16px;
+  font-size: 16px;
 }
   
     /* #sym {
@@ -136,10 +136,9 @@ img {
     #disclaimer {
         background-color: aquamarine;
         font-size: 8px;
-        border: gray;
         text-align: justify;
         display: flex;
-        /* text-align: end; */
+        border: none;
     }
 
 }
@@ -151,13 +150,12 @@ img {
     }
 
     #disclaimer {
-        background-color:rgb(163, 171, 106);
+        background-color: rgb(199, 205, 140);
         font-size: 8px;
-        border: gray;
         text-align: justify;
         display: flex;
         align-content: flex-end;
-        /* text-align: end; */
+        /* border: none; */
     }
 
 }

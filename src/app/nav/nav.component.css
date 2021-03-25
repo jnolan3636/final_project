@@ -67,33 +67,6 @@ img {
       border: none;
   } 
 
-    /* .menu-wrapper{
-      background: #414141;
-      height: 55px;
-      line-height: 55px;
-      width: 100%;
-  }
-.header li {
-  float: left;
-}
-  .header .logo{
-      line-height: 1;
-  }
-.header li a {
-  color: #fff;
-  padding: 0px 30px;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-
-}
-.header .menu {
-  clear: none;
-  float: right;
-  max-height: none;
-}
-.header .menu-icon {
-  display: none;
-} */
-
 }
 
 @media only screen and (min-width: 992px) {

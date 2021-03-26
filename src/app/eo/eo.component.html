@@ -29,7 +29,7 @@
           <button (click)="EOAPI.getEOSymptom(eoName)">Get Symptoms</button>
           
           <div class="wrapper" >
-            <div class="list1"><div *ngFor="let symp of EOAPI.sympSearch;let i=index"><a [routerLink]="['/symptoms', symp.symp_name]" *ngIf="i%2==0">{{ symp.symp_name }}</a></div></div>
+            <div class="list1"><div *ngFor="let symp of EOAPI.sympSearch;let i=index" ><a [routerLink]="['/symptoms', symp.symp_name]" *ngIf="i%2==0">{{ symp.symp_name }}</a></div></div>
             <div class="list2"><div *ngFor="let symp of EOAPI.sympSearch;let i=index"><a [routerLink]="['/symptoms', symp.symp_name]" *ngIf="i%2!=0">{{ symp.symp_name }}</a></div></div>
           </div>
         </div>

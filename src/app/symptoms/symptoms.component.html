@@ -1,4 +1,4 @@
-<h1>Symptoms Checker</h1>
+<h1>Symptom Checker</h1>
 
 <div class="divider">
   <img src="assets/Hand_drawn_flowers_doodle.jpg" alt="flower doodle">
@@ -18,7 +18,8 @@
   
   <p>Once you have selected a Symptom and/or Secondary Symptom, click here</p>
     <button (click)= "EOAPI.getSymptom(sympName)" (click) = "EOAPI.getResults(sympName, subName)"> Get Symptom Information </button>        
-    
+  
+<div class="container">
   <section *ngFor="let item of EOAPI.sympSearch"> 
     <h1>{{item.symp_name}}</h1>       
     <p>{{item.symp_desc}}</p>
@@ -46,5 +47,5 @@
     </div> 
                     
   </section>
-  
+  </div>
     
